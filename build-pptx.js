@@ -227,7 +227,7 @@ QUOTES.forEach((qs, i) => {
   const s = base(14);
   eyebrow(s, TOP, 'The room', 'Photos by Desmond Chua and Nicole Gosé');
   const y0 = TOP + px(70), gw = W - 2 * M, g = px(12), rh = px(384), cu = (gw - 5 * g) / 6;
-  const tiles = [['DSC09601.jpg', 3, 'Drive, Play, Eat panel'], ['DSC09472.jpg', 2, 'Park & Market atrium'], ['DSC09562.jpg', 1, 'Rowan Salama'], ['DSC09649.jpg', 2, 'Table talks in the breaks'], ['DSC09551.jpg', 2, 'Don Norman signing'], ['DSC09732.jpg', 2, 'Happy hour by Marvin & Dscout']];
+  const tiles = [['DSC09601.jpg', 3, 'Drive, Play, Eat panel'], ['DSC09472.jpg', 2, 'Park & Market atrium'], ['DSC09562.jpg', 1, 'Stephanie Mencarelli'], ['DSC09649.jpg', 2, 'Table talks in the breaks'], ['DSC09551.jpg', 2, 'Don Norman signing'], ['DSC09732.jpg', 2, 'Happy hour by Marvin & Dscout']];
   let x = M, y = y0, used = 0;
   tiles.forEach(([f, span, cap]) => {
     if (used + span > 6) { used = 0; x = M; y += rh + g; }
