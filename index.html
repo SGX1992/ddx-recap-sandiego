@@ -1,0 +1,493 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>DDX San Diego 2026 Report</title>
+<meta name="description" content="Conference report from DDX'26 San Diego, 17 September 2026: what design and product leaders agreed on at the inflection point of AI-native product work.">
+<link rel="icon" href="assets/img/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Tinos:ital,wght@0,400;1,400;1,700&display=swap">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+[hidden]{display:none!important}
+:root{
+  --bg:#050505;--card:#0B0B0B;--surface:#0E0E0E;--surface-hi:#171717;
+  --line:#242424;--line-soft:#1A1A1A;
+  --accent:#FFF204;--accent-rgb:255,242,4;
+  --text:#ffffff;--text-dim:#9A9A9A;--text-faint:#5C5C5C;
+  --font:"Helvetica Neue",Helvetica,Arial,sans-serif;
+  --serif:Tinos,"Times New Roman",Times,serif;
+  --measure:1160px;--gutter:clamp(18px,4vw,64px);
+  color-scheme:dark;
+}
+html{scroll-behavior:smooth}
+html,body{background:var(--bg);color:var(--text);font-family:var(--font);-webkit-font-smoothing:antialiased;overflow-x:clip}
+img{max-width:100%;display:block}
+a{color:inherit}
+.wrap{max-width:var(--measure);margin:0 auto;padding:0 var(--gutter)}
+.eyebrow{display:flex;align-items:center;gap:10px;font-size:12px;font-weight:600;letter-spacing:.26em;text-transform:uppercase;color:var(--accent)}
+.eyebrow i{display:inline-block;width:22px;height:2px;background:var(--accent)}
+.eyebrow span+span{color:rgba(255,255,255,.7)}
+h2{font-size:clamp(30px,4.6vw,54px);line-height:.98;letter-spacing:-.03em;font-weight:700;text-transform:uppercase;text-wrap:balance;margin-top:14px}
+.lead{font-size:clamp(17px,1.6vw,20px);line-height:1.5;color:rgba(255,255,255,.86);max-width:62ch}
+section{padding:clamp(56px,8vw,112px) 0;border-top:1px solid var(--line-soft)}
+section:first-of-type{border-top:0}
+.small{font-size:13px;color:var(--text-dim);line-height:1.5}
+
+/* masthead */
+.top{position:sticky;top:0;z-index:40;height:56px;background:rgba(5,5,5,.82);backdrop-filter:blur(16px) saturate(140%);-webkit-backdrop-filter:blur(16px) saturate(140%);border-bottom:1px solid rgba(255,255,255,.08)}
+.top__in{max-width:var(--measure);margin:0 auto;height:100%;padding:0 var(--gutter);display:flex;align-items:center;gap:14px}
+.brand-mark{width:56px;height:auto}
+.top__title{font-size:12px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--text-dim);white-space:nowrap}
+.top nav{margin-left:auto;display:flex;gap:18px;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--text-dim)}
+.top nav a{text-decoration:none}
+.top nav a:hover{color:var(--accent)}
+@media (max-width:760px){.top nav{display:none}}
+
+/* hero */
+.hero{position:relative;isolation:isolate;overflow:hidden;min-height:min(78vh,720px);display:flex;flex-direction:column;justify-content:flex-end;border-top:0}
+.hero__img{position:absolute;inset:0;z-index:-2;width:100%;height:100%;object-fit:cover;object-position:50% 40%}
+.hero::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(5,5,5,.35) 0%,rgba(5,5,5,.05) 40%,rgba(5,5,5,.72) 78%,var(--bg) 100%)}
+.hero .wrap{padding-top:120px;padding-bottom:40px;width:100%}
+.hero h1{margin-top:16px;font-size:clamp(54px,11.5vw,150px);line-height:.86;font-weight:700;letter-spacing:-.045em;text-transform:uppercase}
+.hero h1 em{font-style:normal;color:var(--accent)}
+.hero__meta{margin-top:22px;display:flex;flex-wrap:wrap;gap:8px 28px;font-size:14px;color:rgba(255,255,255,.85)}
+.hero__meta b{font-weight:600;color:#fff}
+.hero__credit{position:absolute;right:var(--gutter);top:76px;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.55)}
+
+/* brief */
+.brief{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:clamp(28px,5vw,72px);align-items:start}
+.brief p+p{margin-top:16px}
+.brief .lead+p{margin-top:20px}
+.brief p{font-size:16px;line-height:1.6;color:rgba(255,255,255,.78);max-width:62ch}
+.numbers{display:grid;grid-template-columns:repeat(2,1fr);border-top:1px solid var(--line);border-left:1px solid var(--line)}
+.numbers div{padding:20px 18px 18px;border-right:1px solid var(--line);border-bottom:1px solid var(--line)}
+.numbers strong{display:block;font-size:clamp(34px,4vw,48px);line-height:1;letter-spacing:-.03em;font-variant-numeric:tabular-nums}
+.numbers span{display:block;margin-top:8px;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--text-dim)}
+.numbers .hi strong{color:var(--accent)}
+@media (max-width:860px){.brief{grid-template-columns:1fr}}
+
+/* themes */
+.themes{margin-top:48px;display:grid;gap:0;border-top:1px solid var(--line)}
+.theme{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:clamp(24px,4vw,64px);padding:40px 0;border-bottom:1px solid var(--line)}
+.theme h3{font-size:clamp(24px,3vw,34px);line-height:1.05;letter-spacing:-.025em;font-weight:700;text-wrap:balance}
+.theme h3 span{color:var(--accent)}
+.theme p{margin-top:14px;font-size:16px;line-height:1.6;color:rgba(255,255,255,.78);max-width:60ch}
+.theme .who{margin-top:16px;display:flex;flex-wrap:wrap;gap:6px}
+.theme .who a{display:inline-flex;align-items:center;gap:7px;padding:5px 10px 5px 5px;border:1px solid var(--line);border-radius:999px;font-size:12px;color:var(--text-dim);text-decoration:none}
+.theme .who a:hover{border-color:rgba(255,255,255,.4);color:#fff}
+.theme .who img{width:22px;height:22px;border-radius:50%;object-fit:cover;background:#000}
+.evidence{border-left:2px solid var(--accent);padding-left:18px;align-self:start}
+.evidence .k{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--accent)}
+.evidence .n{margin-top:10px;font-size:clamp(40px,5vw,64px);line-height:.95;letter-spacing:-.04em;font-variant-numeric:tabular-nums}
+.evidence .n small{font-size:.5em;letter-spacing:-.01em;color:var(--text-dim)}
+.evidence .t{margin-top:10px;font-size:14px;line-height:1.5;color:rgba(255,255,255,.8)}
+.evidence .s{margin-top:8px;font-size:12px;color:var(--text-faint)}
+.evidence .s a{color:var(--text-dim);text-decoration:none;border-bottom:1px solid var(--line)}
+.evidence .s a:hover{color:var(--accent);border-color:var(--accent)}
+.evidence+.evidence{margin-top:26px}
+@media (max-width:860px){.theme{grid-template-columns:1fr}}
+
+/* quotes */
+.quotes{margin-top:44px;columns:2;column-gap:28px}
+.q{break-inside:avoid;margin:0 0 28px;padding:26px 24px 22px;background:var(--card);border:1px solid var(--line)}
+.q blockquote{font-family:var(--serif);font-style:italic;font-size:clamp(19px,1.7vw,23px);line-height:1.34;color:#fff;text-wrap:pretty}
+.q blockquote::before{content:"“";color:var(--accent);margin-right:2px}
+.q blockquote::after{content:"”";color:var(--accent);margin-left:2px}
+.q figcaption{margin-top:18px;display:flex;align-items:center;gap:12px}
+.q figcaption img{width:52px;height:52px;border-radius:50%;object-fit:cover;background:#000;flex:0 0 auto}
+.q figcaption b{display:block;font-size:14px;font-weight:600}
+.q figcaption span{display:block;font-size:12px;color:var(--text-dim);margin-top:2px}
+.q.big{column-span:all;padding:40px 36px;border-color:rgba(var(--accent-rgb),.35);background:linear-gradient(180deg,rgba(var(--accent-rgb),.06),transparent)}
+.q.big blockquote{font-size:clamp(24px,2.8vw,36px);max-width:30ch}
+@media (max-width:760px){.quotes{columns:1}}
+
+/* programme */
+.stages{margin-top:44px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px}
+.stage h3{font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);padding-bottom:12px;border-bottom:1px solid var(--line)}
+.stage ol{list-style:none}
+.stage li{display:grid;grid-template-columns:52px 1fr;gap:12px;padding:12px 0;border-bottom:1px solid var(--line-soft)}
+.stage time{font-size:12px;color:var(--text-dim);font-variant-numeric:tabular-nums;padding-top:2px}
+.stage b{display:block;font-size:14px;font-weight:600;line-height:1.3}
+.stage span{display:block;margin-top:3px;font-size:12px;color:var(--text-dim);line-height:1.4}
+.stage .kind{display:inline-block;margin-top:5px;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--text-faint)}
+.tables{margin-top:36px;padding:24px;border:1px solid var(--line);background:var(--card)}
+.tables h3{font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--accent)}
+.tables ul{margin-top:14px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px 22px;list-style:none}
+.tables li{font-size:13px;line-height:1.4;color:rgba(255,255,255,.8)}
+.tables li b{color:#fff;font-weight:600}
+.tables li span{display:block;font-size:12px;color:var(--text-dim);margin-top:2px}
+@media (max-width:900px){.stages,.tables ul{grid-template-columns:1fr}}
+
+/* gallery */
+.gallery{margin-top:40px;display:grid;grid-template-columns:repeat(6,1fr);grid-auto-rows:clamp(110px,14vw,190px);gap:8px}
+.gallery figure{overflow:hidden;background:#000;position:relative}
+.gallery img{width:100%;height:100%;object-fit:cover;transition:transform .5s ease}
+.gallery figure:hover img{transform:scale(1.03)}
+.gallery figcaption{position:absolute;left:0;right:0;bottom:0;padding:10px 12px;font-size:12px;line-height:1.35;color:#fff;background:linear-gradient(0deg,rgba(0,0,0,.72),transparent)}
+.gallery .w3{grid-column:span 3}.gallery .w2{grid-column:span 2}.gallery .w4{grid-column:span 4}.gallery .h2{grid-row:span 2}
+@media (max-width:760px){.gallery{grid-template-columns:repeat(2,1fr);grid-auto-rows:150px}.gallery .w3,.gallery .w2,.gallery .w4{grid-column:span 2}.gallery .h2{grid-row:span 1}}
+
+/* partners + next */
+.partners{margin-top:28px;display:flex;flex-wrap:wrap;gap:8px}
+.partners span{padding:8px 14px;border:1px solid var(--line);font-size:13px;color:rgba(255,255,255,.82)}
+.partners .lead-p{border-color:rgba(var(--accent-rgb),.5);color:var(--accent)}
+.next{margin-top:44px;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));border-top:1px solid var(--line);border-left:1px solid var(--line)}
+.next a{display:block;padding:20px 18px;border-right:1px solid var(--line);border-bottom:1px solid var(--line);text-decoration:none}
+.next a:hover{background:var(--surface-hi)}
+.next b{display:block;font-size:22px;letter-spacing:-.02em;text-transform:uppercase}
+.next span{display:block;margin-top:6px;font-size:12px;color:var(--text-dim)}
+.next .cta{background:var(--accent);color:#000}
+.next .cta span{color:rgba(0,0,0,.65)}
+@media (max-width:900px){.next{grid-template-columns:repeat(2,1fr)}}
+
+/* sources + footer */
+.sources{margin-top:28px;font-size:13px;line-height:1.55;color:var(--text-dim);columns:2;column-gap:40px}
+.sources li{break-inside:avoid;padding:6px 0;border-bottom:1px solid var(--line-soft)}
+.sources a{color:rgba(255,255,255,.75);text-decoration:none;border-bottom:1px solid var(--line)}
+.sources a:hover{color:var(--accent);border-color:var(--accent)}
+@media (max-width:760px){.sources{columns:1}}
+footer{padding:36px 0 60px;border-top:1px solid var(--line);font-size:12px;color:var(--text-faint);display:flex;flex-wrap:wrap;gap:12px 28px;align-items:center}
+footer img{width:64px}
+@media print{.top{position:static}section{break-inside:auto}.q{break-inside:avoid}}
+@media (prefers-reduced-motion:reduce){.gallery img{transition:none}}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="top__in">
+    <a href="https://www.ddxconference.com/sandiego"><img class="brand-mark" src="assets/img/ddx-wordmark.png" alt="DDX"></a>
+    <span class="top__title">San Diego ’26 · Conference Report</span>
+    <nav>
+      <a href="#brief">In brief</a><a href="#themes">Themes</a><a href="#voices">Voices</a><a href="#day">The day</a><a href="#room">The room</a><a href="#next">Next</a><a href="DDX26-San-Diego-Recap.pdf">Download deck</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <img class="hero__img" src="assets/img/photos/hero.jpg" alt="The Guggenheim Theatre at UC San Diego Park & Market during DDX'26 San Diego" fetchpriority="high">
+  <span class="hero__credit">Photos · Desmond Chua & Nicole Gosé</span>
+  <div class="wrap">
+    <div class="eyebrow"><i></i><span>Conference report</span><span>17 September 2026</span></div>
+    <h1>The<br>Inflection<br><em>Point</em></h1>
+    <div class="hero__meta">
+      <span><b>DDX’26 San Diego</b></span>
+      <span>UC San Diego Park &amp; Market</span>
+      <span>Design &amp; Product Leaders Exchange on the Future of Digital Innovation</span>
+    </div>
+  </div>
+</section>
+
+<section id="brief">
+  <div class="wrap brief">
+    <div>
+      <div class="eyebrow"><i></i><span>In brief</span></div>
+      <h2>One day, three stages, one question</h2>
+      <p class="lead" style="margin-top:22px">If AI can produce “good enough” design on demand, what is the job of a design and product leader now? DDX’26 San Diego put that question to twenty-five leaders from Adobe, Google, IDEO, Webflow, Otter.ai, Target, Netflix, Careem, TaylorMade, Marvin, Dscout and the Obama White House, and to a room that came to argue back.</p>
+      <p>The answer that emerged was consistent across talks, panels, workshops and the nine table talks that ran through the breaks: the tools raised the floor, not the ceiling. Taste, judgment and a durable point of view are the scarce resources. Research has to become always-on. And design is moving out of the interface and into decisions, organisations and the experience the business itself has become.</p>
+      <p>Don Norman opened the day with a fireside chat on the state of humanity-centred innovation. The closing panel put three enterprise design leaders on one stage to compare the expectations of the role with its reality in 2026. In between, the programme deliberately ran research, craft and strategy side by side, so that a golf-equipment AI feature, a Fortune 500 design organisation and a career sandbox sat in the same hour.</p>
+    </div>
+    <div class="numbers">
+      <div class="hi"><strong>25</strong><span>Speakers on stage</span></div>
+      <div><strong>3</strong><span>Stages in parallel</span></div>
+      <div><strong>3</strong><span>Panels</span></div>
+      <div><strong>6</strong><span>Workshops</span></div>
+      <div><strong>9</strong><span>Table talks</span></div>
+      <div><strong>1</strong><span>Fireside with Don Norman</span></div>
+      <div class="hi"><strong>300+</strong><span>Leaders registered</span></div>
+      <div><strong>3,000+</strong><span>DDX alumni worldwide</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="themes">
+  <div class="wrap">
+    <div class="eyebrow"><i></i><span>What the room agreed on</span><span>Five threads, with the 2026 evidence behind them</span></div>
+    <h2>The floor rose. The ceiling didn’t move.</h2>
+    <div class="themes">
+      <article class="theme">
+        <div>
+          <h3>Good is free now. <span>Great is the job.</span></h3>
+          <p>The most-repeated argument of the day came from two stages at once. Richard Ward called the “death of design” narrative backwards: when everyone can clear the bar for good, the differentiator is knowing what great looks like and having the taste, judgment and craft to reach it. Kevin Wong went further: AI has not changed design, it has exposed how little depth most organisations were designing with. His framework, recognition (taste plus judgment) and commitment (a durable point of view), was echoed at the tables, where Jaleesa Chagan framed the edge as a shift “from capability to conviction”.</p>
+          <div class="who">
+            <a href="#day"><img src="assets/img/speakers/richard-ward.webp" alt="">Richard Ward</a>
+            <a href="#day"><img src="assets/img/speakers/kevin-wong.webp" alt="">Kevin Wong</a>
+            <a href="#day"><img src="assets/img/speakers/jaleesa-chagan.webp" alt="">Jaleesa Chagan</a>
+            <a href="#day"><img src="assets/img/speakers/scott-alexander.webp" alt="">Robinson &amp; Danilowicz</a>
+          </div>
+        </div>
+        <aside>
+          <div class="evidence"><div class="k">2026 evidence</div><div class="n">91<small>%</small></div><div class="t">of designers now use AI for design tasks every week, up from 54% a year earlier. Half have shipped AI-generated code to production.</div><div class="s">Designer Fund &amp; Foundation Capital, <a href="https://designerfund.substack.com/p/ai-in-design-2026-the-inflection">AI in Design 2026</a>, May 2026</div></div>
+          <div class="evidence"><div class="k">And yet</div><div class="n">49<small>%</small></div><div class="t">of US consumers say generative AI has made the quality of content available to them worse; 57% among Gen Z and millennials.</div><div class="s">Gartner, <a href="https://www.gartner.com/en/newsroom/press-releases/2026-06-09-gartner-survey-finds-49-of-u-s-consumers-say-genai-has-made-content-quality-worse">consumer survey</a>, June 2026</div></div>
+        </aside>
+      </article>
+
+      <article class="theme">
+        <div>
+          <h3>Research stops being a project <span>and becomes a pulse.</span></h3>
+          <p>Prayag Narula’s case for always-on research set the tone for the Forum stage: when teams ship weekly, episodic studies arrive after the decision. Harriet Swan and Katie Niles showed what that looks like in practice with TaylorMade’s AI caddie, CHIP: exploratory research to decide what it should say and do, A/B tests to find the features that moved engagement, and evaluative research to catch what the tests alone could not, including the inconclusive results. Bhavik Gandecha’s table talk put it in one line: AI moves fast, research still has to lead.</p>
+          <div class="who">
+            <a href="#day"><img src="assets/img/speakers/prayag-narula.webp" alt="">Prayag Narula</a>
+            <a href="#day"><img src="assets/img/speakers/harriet-katie.webp" alt="">Swan &amp; Niles</a>
+            <a href="#day"><img src="assets/img/speakers/bhavik-gandecha.webp" alt="">Bhavik Gandecha</a>
+            <a href="#day"><img src="assets/img/speakers/jordi-morillo.webp" alt="">Jordi Morillo</a>
+          </div>
+        </div>
+        <aside>
+          <div class="evidence"><div class="k">2026 evidence</div><div class="n">8 → 22<small>%</small></div><div class="t">share of organisations where research is “essential to all levels of business strategy”, nearly tripling in a year. 69% of research practitioners now use AI in at least some projects.</div><div class="s">Maze, <a href="https://maze.co/blog/future-user-research-2026/">The Future of User Research 2026</a>, March 2026</div></div>
+          <div class="evidence"><div class="k">The gap to close</div><div class="n">37<small>%</small></div><div class="t">of organisations say AI has contributed to enterprise EBIT, unchanged from a year earlier, while 80% of respondents say it improved their own productivity.</div><div class="s">McKinsey, <a href="https://www.mckinsey.com/capabilities/quantumblack/our-insights/the-state-of-ai">The State of AI in 2026</a>, August 2026</div></div>
+        </aside>
+      </article>
+
+      <article class="theme">
+        <div>
+          <h3>Design leaves the screen: <span>decisions, systems, organisations.</span></h3>
+          <p>Chris Gielow’s workshop asked designers to stop designing screens and start designing decisions, and to measure their value by the influence they have on what gets built, not by the deliverables they produce. Twisha Shah-Brandenburg took the same move one level up: AI transformation succeeds or fails on fragmented systems, invisible labour and unclear ownership, so the design brief is now the organisation itself. On the closing panel, Lauren Hughes, Stephanie Mencarelli and Kevin Wong compared the expectations placed on enterprise design leaders in 2026 with the reality of the role.</p>
+          <div class="who">
+            <a href="#day"><img src="assets/img/speakers/chris-gielow.webp" alt="">Chris Gielow</a>
+            <a href="#day"><img src="assets/img/speakers/twisha-shah-brandenburg.webp" alt="">Twisha Shah-Brandenburg</a>
+            <a href="#day"><img src="assets/img/speakers/diana-tobey.webp" alt="">Diana Tobey</a>
+            <a href="#day"><img src="assets/img/speakers/panel-enterprise-leader.webp" alt="">Enterprise leader panel</a>
+          </div>
+        </div>
+        <aside>
+          <div class="evidence"><div class="k">2026 evidence</div><div class="n">21 → 41<small>%</small></div><div class="t">of designers now do development work, doubling in a year; developers doing design rose from 44% to 60%. The roles are converging on the decision, not the deliverable.</div><div class="s">Figma, <a href="https://www.figma.com/blog/2026-ai-report/">2026 AI Report</a>, June 2026</div></div>
+          <div class="evidence"><div class="k">At the top</div><div class="n">72<small>%</small></div><div class="t">of CEOs now say they are the main AI decision-maker in their company, double the prior year. Design that wants influence has to be in that room.</div><div class="s">BCG, <a href="https://www.bcg.com/publications/2026/as-ai-investments-surge-ceos-take-the-lead">AI Radar 2026</a>, January 2026</div></div>
+        </aside>
+      </article>
+
+      <article class="theme">
+        <div>
+          <h3>The human stays irrational, <span>and irreplaceable.</span></h3>
+          <p>Don Norman opened the day on the state of humanity-centred innovation; Rowan Salama closed the loop with the reminder that the rational user most products are designed for does not exist, and that AI’s best use is to understand the “beautifully irrational” ways people actually decide. Stephanie Mencarelli argued that as machines generate more, human originality becomes the scarce resource worth protecting, which is why her talk made joy, not productivity, the metric. Kara Fitzpatrick’s version on the culture panel: AI can read the deck, it cannot read the room.</p>
+          <div class="who">
+            <a href="#day"><img src="assets/img/speakers/don-norman.webp" alt="">Don Norman</a>
+            <a href="#day"><img src="assets/img/speakers/rowan-salama.webp" alt="">Rowan Salama</a>
+            <a href="#day"><img src="assets/img/speakers/stephanie-mencarelli.webp" alt="">Stephanie Mencarelli</a>
+            <a href="#day"><img src="assets/img/speakers/kara-fitzpatrick.jpg" alt="">Kara Fitzpatrick</a>
+          </div>
+        </div>
+        <aside>
+          <div class="evidence"><div class="k">2026 evidence</div><div class="n">82<small>%</small></div><div class="t">of research practitioners say interpreting nuance and emotion remains a job for humans, even as AI use in research climbs.</div><div class="s">Maze, <a href="https://maze.co/blog/future-user-research-2026/">The Future of User Research 2026</a>, March 2026</div></div>
+          <div class="evidence"><div class="k">The trust problem</div><div class="n">50<small>%</small></div><div class="t">of US consumers would rather give their business to brands that do not use generative AI in customer-facing content; 68% frequently wonder whether what they see is real.</div><div class="s">Gartner, <a href="https://www.gartner.com/en/newsroom/press-releases/2026-03-16-gartner-marketing-survey-finds-50-percent-of-consumers-prefer-brands-that-avoid-using-genai-in-consumer-facing-content0">marketing survey</a>, March 2026</div></div>
+        </aside>
+      </article>
+
+      <article class="theme">
+        <div>
+          <h3>Context is the asset. <span>The experience is the business.</span></h3>
+          <p>Two ideas from the tables and the late-afternoon stage belong together. Diana Wolosin’s “context engineers” talk argued that models and tools change weekly while well-structured knowledge compounds; AJ Azzi’s MCP roundtable showed the same thing from the tool side, with AI reaching into the systems teams already work in. Scott Robinson asked who we design for when an agent is the one browsing and buying. And the Experience Economy panel, with Ann Kostopanagiotou, Twisha Shah-Brandenburg, Diana Wolosin and Dave Rowley, drew the conclusion: digital experiences are no longer a layer on the business, they are the business.</p>
+          <div class="who">
+            <a href="#day"><img src="assets/img/speakers/diana-wolosin.webp" alt="">Diana Wolosin</a>
+            <a href="#day"><img src="assets/img/speakers/aj-azzi.webp" alt="">AJ Azzi</a>
+            <a href="#day"><img src="assets/img/speakers/scott-robinson.webp" alt="">Scott Robinson</a>
+            <a href="#day"><img src="assets/img/speakers/panel-experience-economy.webp" alt="">Experience Economy panel</a>
+          </div>
+        </div>
+        <aside>
+          <div class="evidence"><div class="k">2026 evidence</div><div class="n">20 → 77<small>%</small></div><div class="t">AI agents’ success rate on real-world tasks, up from 20% in 2025. Agents that can act need context they can act on.</div><div class="s">Stanford HAI, <a href="https://hai.stanford.edu/news/inside-the-ai-index-12-takeaways-from-the-2026-report">2026 AI Index</a>, April 2026</div></div>
+          <div class="evidence"><div class="k">The experience gap</div><div class="n">43<small>%</small></div><div class="t">of customers say they are willing to interact with a brand’s AI agent, while 78% of organisations expect agents to handle half of support within 18 months and only 31% have a way to measure it.</div><div class="s">Adobe, <a href="https://business.adobe.com/resources/digital-trends-report.html">2026 AI and Digital Trends</a>, February 2026</div></div>
+        </aside>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="voices">
+  <div class="wrap">
+    <div class="eyebrow"><i></i><span>In their words</span><span>Speakers on the future of innovation</span></div>
+    <h2>Fifteen positions on the future</h2>
+    <div class="quotes">
+      <figure class="q big">
+        <blockquote>I strongly believe we are entering a new design renaissance. For years, the industry focused on optimizing convenience and automating the easy things, while leaving humans with the most complex, emotional, and fragmented parts of work. AI is exposing the limits of that approach. The next era of innovation will not belong to the companies that automate the fastest, but to those that intentionally design systems in which humans and intelligent technology can learn, adapt, and make better decisions together.</blockquote>
+        <figcaption><img src="assets/img/speakers/twisha-shah-brandenburg.webp" alt=""><div><b>Twisha Shah-Brandenburg</b><span>Principal, Target · Workshop “From Optimizing Interfaces to Designing Organizations”</span></div></figcaption>
+      </figure>
+      <figure class="q">
+        <blockquote>Democratized tools didn't lower the bar for great design. They raised it, because now everyone can clear the bar for good. Leading with “why,” not just shipping fast, is what will separate great teams from everyone else.</blockquote>
+        <figcaption><img src="assets/img/speakers/richard-ward.webp" alt=""><div><b>Richard Ward</b><span>Chief Design Officer, Otter.ai</span></div></figcaption>
+      </figure>
+      <figure class="q">
+        <blockquote>As AI becomes more capable and generates more machine output, human originality becomes a scarce resource. We need to protect and foster the conditions where humans can continue to create original ideas.</blockquote>
+        <figcaption><img src="assets/img/speakers/stephanie-mencarelli.webp" alt=""><div><b>Stephanie Mencarelli</b><span>Vice President of Design, Adobe</span></div></figcaption>
+      </figure>
+      <figure class="q">
+        <blockquote>The future of innovation isn’t just about how fast technology evolves — it’s about how deeply we understand the humans evolving alongside it. We can use AI and emerging technology not to remove the human from the process, but to understand human behavior better and design for the beautifully irrational ways people actually think, behave, and make decisions.</blockquote>
+        <figcaption><img src="assets/img/speakers/rowan-salama.webp" alt=""><div><b>Rowan Salama</b><span>Lead Product Researcher, Careem (Uber)</span></div></figcaption>
+      </figure>
+      <figure class="q">
+        <blockquote>While AI can read a deck, a doc, a website, your emails… it can’t read the room. AI is a tool, just like the internet was a tool. It may augment us, but it can never replace us.</blockquote>
+        <figcaption><img src="assets/img/speakers/kara-fitzpatrick.jpg" alt=""><div><b>Kara Fitzpatrick</b><span>Director of Design &amp; Product, Obama White House</span></div></figcaption>
+      </figure>
+      <figure class="q">
+        <blockquote>I believe the future of digital innovation depends on making customer research part of the customer experience itself. As organizations move faster with AI, research must shift from slow, episodic projects to an always-on practice that stays one step ahead, helping teams see around corners, make better decisions, and know where to invest next.</blockquote>
+        <figcaption><img src="assets/img/speakers/prayag-narula.webp" alt=""><div><b>Prayag Narula</b><span>Co-founder and CEO, Marvin</span></div></figcaption>
+      </figure>
+      <figure class="q">
+        <blockquote>People are chasing the next model or the next tool, but the winners of this era will be those who invest in curating and structuring their context and their knowledge, because tools change every week, but context never gets old.</blockquote>
+        <figcaption><img src="assets/img/speakers/diana-wolosin.webp" alt=""><div><b>Diana Wolosin</b><span>Sr. AI Systems Architect, Ads · Netflix</span></div></figcaption>
+      </figure>
+      <figure class="q">
+        <blockquote>I believe the future of design belongs to those who move beyond creating interfaces and toward shaping decisions. As AI transforms how products are built, our greatest opportunity is to expand our influence through strategy, systems thinking, and human-centered leadership.</blockquote>
+        <figcaption><img src="assets/img/speakers/chris-gielow.webp" alt=""><div><b>Chris Gielow</b><span>President, UX Speakeasy</span></div></figcaption>
+      </figure>
+      <figure class="q">
+        <blockquote>As AI makes building almost anything much more accessible, the real competitive edge shifts from capability to conviction. It's getting easier for everyone to end up with the same experiences and interfaces, so having a clear point of view, and the trust it builds, becomes the actual differentiator.</blockquote>
+        <figcaption><img src="assets/img/speakers/jaleesa-chagan.webp" alt=""><div><b>Jaleesa Chagan</b><span>Senior UX Researcher, GAIN</span></div></figcaption>
+      </figure>
+      <figure class="q">
+        <blockquote>I believe the Experience Economy is reshaping how brands compete: digital experiences are no longer a layer on top of the business — they are the business.</blockquote>
+        <figcaption><img src="assets/img/speakers/ann-kostopanagiotou.jpg" alt=""><div><b>Ann Kostopanagiotou</b><span>Managing Director, Mondo Robot</span></div></figcaption>
+      </figure>
+      <figure class="q">
+        <blockquote>We are starting to think about designing webpages not just for users, but for LLMs, and keeping a pulse on how user behavior and attitudes are changing will continue to be integral to ensure we are building digital experiences which align with what matters to our users.</blockquote>
+        <figcaption><img src="assets/img/speakers/harriet-swan.png" alt=""><div><b>Harriet Swan</b><span>Director of UX Research, GAIN</span></div></figcaption>
+      </figure>
+      <figure class="q">
+        <blockquote>Embracing the AI transformation is incredibly exciting because the book on how we design for it isn’t finished yet — we’re the ones actively writing the chapters.</blockquote>
+        <figcaption><img src="assets/img/speakers/brandon-burlington.webp" alt=""><div><b>Brandon Burlington</b><span>Staff UX Designer, Google</span></div></figcaption>
+      </figure>
+      <figure class="q">
+        <blockquote>I see the future of digital innovation as a shift from assumption-led decisions to evidence-led creation. The strongest strategies and experiences will come from teams that use AI to move at speed while keeping real human needs at the center.</blockquote>
+        <figcaption><img src="assets/img/speakers/aj-azzi.webp" alt=""><div><b>AJ Azzi</b><span>Sr. Account Executive, Askable</span></div></figcaption>
+      </figure>
+      <figure class="q">
+        <blockquote>Digital innovation will continue to be driven by data-informed decision-making, leveraging AI across every aspect, embracing a culture of experimentation, and delivering personalized experiences through the customer journey that increase engagement and conversion.</blockquote>
+        <figcaption><img src="assets/img/speakers/katie-niles.jpg" alt=""><div><b>Katie Niles</b><span>Digital Optimization Manager, TaylorMade</span></div></figcaption>
+      </figure>
+      <figure class="q">
+        <blockquote>Good design has always been about staying close to real people and genuinely enjoying the process of solving problems for them. The future of innovation is about embracing speed without losing either one.</blockquote>
+        <figcaption><img src="assets/img/speakers/lauren-hughes.jpg" alt=""><div><b>Lauren Hughes</b><span>Lead Product Designer, Dscout</span></div></figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section id="day">
+  <div class="wrap">
+    <div class="eyebrow"><i></i><span>The day</span><span>Thursday 17 September 2026 · Pacific time</span></div>
+    <h2>The programme</h2>
+    <div class="stages">
+      <div class="stage">
+        <h3>Guggenheim Theatre</h3>
+        <ol>
+          <li><time>10:00</time><div><b>Welcome</b><span>Tad Parzen (BCCA), Sebastian Gier, Scott Robinson</span></div></li>
+          <li><time>10:15</time><div><b>The State of Humanity-Centric Innovation</b><span>Don Norman · fireside chat &amp; open Q&amp;A</span><i class="kind">Keynote</i></div></li>
+          <li><time>10:45</time><div><b>Industry insights from the global DDX series</b><span>Sebastian Gier</span></div></li>
+          <li><time>11:30</time><div><b>F*** Productivity: Make Space for Creative Joy</b><span>Stephanie Mencarelli, Adobe</span><i class="kind">Talk</i></div></li>
+          <li><time>12:15</time><div><b>Drive, Play, Eat. Lessons learned from designers shaping our culture</b><span>Scott Robinson, Elizabeth Yeongmin (Mercedes-Benz), Diana Tobey (IDEO), Kara Fitzpatrick</span><i class="kind">Panel</i></div></li>
+          <li><time>14:00</time><div><b>Design Isn’t Dead, It’s Just Getting Harder to Be Great</b><span>Richard Ward, Otter.ai</span><i class="kind">Talk</i></div></li>
+          <li><time>14:30</time><div><b>Design Didn’t Change – AI Just Exposed What Was Missing</b><span>Kevin Wong, Webflow</span><i class="kind">Talk</i></div></li>
+          <li><time>15:30</time><div><b>Systems, Prototypes, Patterns, and Products: Closing the Design-to-Dev Gap</b><span>Scott Robinson (FreshForm), Alexander Danilowicz (Magic Patterns)</span><i class="kind">Talk</i></div></li>
+          <li><time>16:00</time><div><b>The Rise of the Experience Economy</b><span>Ann Kostopanagiotou, Twisha Shah-Brandenburg, Diana Wolosin, Dave Rowley · moderated by Sebastian Gier</span><i class="kind">Panel</i></div></li>
+          <li><time>17:00</time><div><b>Expectations and realities of being an enterprise design leader today</b><span>Lauren Hughes, Stephanie Mencarelli, Kevin Wong · moderated by Sebastian Gier</span><i class="kind">Panel</i></div></li>
+        </ol>
+      </div>
+      <div class="stage">
+        <h3>Forum Space</h3>
+        <ol>
+          <li><time>11:30</time><div><b>The User You Designed For Doesn’t Exist</b><span>Rowan Salama, Careem (Uber)</span><i class="kind">Talk</i></div></li>
+          <li><time>12:15</time><div><b>Always-On Customer Research for the AI Era</b><span>Prayag Narula, Marvin</span><i class="kind">Talk</i></div></li>
+          <li><time>14:00</time><div><b>From AI Experimentation to Agentic Transformation: Lessons from UX and Design</b><span>Brandon Burlington, Google</span><i class="kind">Talk</i></div></li>
+          <li><time>14:30</time><div><b>Ship an AI feature that actually works for your users</b><span>Harriet Swan (GAIN), Katie Niles (TaylorMade)</span><i class="kind">Talk</i></div></li>
+          <li><time>15:30</time><div><b>Stop Designing Screens. Start Designing Decisions.</b><span>Chris Gielow, UX Speakeasy</span><i class="kind">Workshop</i></div></li>
+        </ol>
+      </div>
+      <div class="stage">
+        <h3>Executive Space</h3>
+        <ol>
+          <li><time>11:30</time><div><b>Service Design / Service Jam</b><span>Brian LeDuc (Learning Designed), Grace Rieger LeDuc (Oteemo) · 90 minutes, no slides</span><i class="kind">Workshop</i></div></li>
+          <li><time>15:30</time><div><b>Playful Career Experiments for Thriving in the AI Era</b><span>Diana Tobey, IDEO</span><i class="kind">Workshop</i></div></li>
+          <li><time>17:00</time><div><b>From Optimizing Interfaces to Designing Organizations</b><span>Twisha Shah-Brandenburg, Target</span><i class="kind">Workshop</i></div></li>
+          <li><time>18:00</time><div><b>Happy Hour</b><span>Hosted by Marvin &amp; Dscout · Lobby · food, drinks and open networking until 20:30</span><i class="kind">After</i></div></li>
+        </ol>
+      </div>
+    </div>
+    <div class="tables">
+      <h3>Table talks in the breaks</h3>
+      <ul>
+        <li><b>Your Customer Is Not Human</b><span>Scott Robinson, FreshForm · 11:00</span></li>
+        <li><b>The Rise of Context Engineers, Your Next Career Path</b><span>Diana Wolosin, Netflix · 11:00</span></li>
+        <li><b>AI: Enhancing Experiences or Adding Complexity?</b><span>Brianna Koch, SDXD · 11:00</span></li>
+        <li><b>Are Relationships Part of the Work?</b><span>Alex Diener, Dexcom · 15:00</span></li>
+        <li><b>AI Interviews: Hype or Here to Stay?</b><span>Prayag Narula, Marvin · 15:00</span></li>
+        <li><b>Shipping AI features that work for your users and your business</b><span>Jaleesa Chagan, GAIN · 15:00</span></li>
+        <li><b>Play Your Hand: An MCP Roundtable for Design, Product and Innovation</b><span>AJ Azzi, Askable · 16:30</span></li>
+        <li><b>Human-Centered Design in the Age of AI</b><span>Jordi Morillo, Insulet · 16:30</span></li>
+        <li><b>AI Moves Fast. Research Still Has to Lead.</b><span>Bhavik Gandecha, Dscout · 16:30</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="room">
+  <div class="wrap">
+    <div class="eyebrow"><i></i><span>The room</span><span>Photos by Desmond Chua and Nicole Gosé</span></div>
+    <h2>Who was there, and what it looked like</h2>
+    <div class="gallery">
+      <figure class="w4 h2"><img src="assets/img/photos/DSC09522.jpg" alt="Don Norman in conversation with Sebastian Gier on the Guggenheim stage, slide reading The State of Humanity-Centric Design" loading="lazy"><figcaption>Don Norman opens the day: the state of humanity-centric design, then open questions from the room.</figcaption></figure>
+      <figure class="w2"><img src="assets/img/photos/DSC09490.jpg" alt="Tad Parzen of BCCA welcoming the audience" loading="lazy"><figcaption>Tad Parzen, BCCA, welcomes San Diego.</figcaption></figure>
+      <figure class="w2"><img src="assets/img/photos/DSC09472.jpg" alt="Attendees filling the atrium of UC San Diego Park & Market" loading="lazy"><figcaption>The Park &amp; Market atrium between sessions.</figcaption></figure>
+      <figure class="w2"><img src="assets/img/photos/DSC09562.jpg" alt="Rowan Salama presenting on the Forum stage" loading="lazy"><figcaption>Rowan Salama: the user you designed for doesn’t exist.</figcaption></figure>
+      <figure class="w2"><img src="assets/img/photos/DSC09633.jpg" alt="Harriet Swan and Katie Niles on stage with the title slide Ship an AI feature that actually works for your users" loading="lazy"><figcaption>Harriet Swan and Katie Niles on shipping TaylorMade’s AI caddie.</figcaption></figure>
+      <figure class="w2"><img src="assets/img/photos/DSC09584.jpg" alt="Prayag Narula presenting, slide reading Gathering feedback is a brutally long process" loading="lazy"><figcaption>Prayag Narula makes the case for always-on research.</figcaption></figure>
+      <figure class="w3"><img src="assets/img/photos/DSC09601.jpg" alt="The Drive, Play, Eat panel on the main stage" loading="lazy"><figcaption>Drive, Play, Eat: Scott Robinson with Elizabeth Yeongmin, Diana Tobey and Kara Fitzpatrick.</figcaption></figure>
+      <figure class="w3"><img src="assets/img/photos/DSC09693.jpg" alt="Lauren Hughes, Stephanie Mencarelli and Kevin Wong on the closing enterprise design leader panel" loading="lazy"><figcaption>Closing panel: Lauren Hughes, Stephanie Mencarelli and Kevin Wong on the enterprise design leader’s job in 2026.</figcaption></figure>
+      <figure class="w2"><img src="assets/img/photos/2026_DDX-SD-67.jpg" alt="Hands sorting sticky notes during the service design jam" loading="lazy"><figcaption>Service Jam: ninety minutes, no slides.</figcaption></figure>
+      <figure class="w2"><img src="assets/img/photos/2026_DDX-SD-64.jpg" alt="Graphic notes on a board titled Prototyping and Testing" loading="lazy"><figcaption>Live graphic notes captured the sessions as they happened.</figcaption></figure>
+      <figure class="w2"><img src="assets/img/photos/DSC09649.jpg" alt="Attendees gathered at a numbered table talk during a break" loading="lazy"><figcaption>Table talks ran through every break, three at a time.</figcaption></figure>
+      <figure class="w2"><img src="assets/img/photos/DSC09616.jpg" alt="Richard Ward on the main stage" loading="lazy"><figcaption>Richard Ward: design isn’t dead, it’s getting harder to be great.</figcaption></figure>
+      <figure class="w2"><img src="assets/img/photos/DSC09661.jpg" alt="Scott Robinson and Alexander Danilowicz in conversation on stage" loading="lazy"><figcaption>Scott Robinson and Alexander Danilowicz on closing the design-to-dev gap.</figcaption></figure>
+      <figure class="w2"><img src="assets/img/photos/DSC09719.jpg" alt="Two speakers on stage under a screen reading from capability to conviction" loading="lazy"><figcaption>“From capability to conviction”: the line that summed up the day.</figcaption></figure>
+      <figure class="w3"><img src="assets/img/photos/DSC09551.jpg" alt="Don Norman signing a book for an attendee" loading="lazy"><figcaption>Don Norman signing copies between sessions.</figcaption></figure>
+      <figure class="w3"><img src="assets/img/photos/DSC09732.jpg" alt="Attendees talking over food at the happy hour" loading="lazy"><figcaption>Happy hour by Marvin and Dscout, where the Q&amp;A continued.</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<section id="next">
+  <div class="wrap">
+    <div class="eyebrow"><i></i><span>Partners</span></div>
+    <h2>Made possible by</h2>
+    <div class="partners">
+      <span class="lead-p">FreshForm</span><span class="lead-p">BCCA</span><span class="lead-p">Don Norman Design Award</span>
+      <span>Marvin</span><span>Dscout</span><span>GAIN Conversion</span><span>Askable</span><span>Mondo Robot</span><span>J.S. Held</span><span>Edenspiekermann</span><span>Appsfactory</span><span>San Diego Design Week</span><span>Friends of Figma San Diego</span><span>SDXD</span><span>UX Speakeasy</span>
+    </div>
+
+    <div class="eyebrow" style="margin-top:64px"><i></i><span>The series continues</span></div>
+    <h2>Same exchange, next city</h2>
+    <div class="next">
+      <a href="https://www.ddxconference.com/miami"><b>Miami</b><span>25 September 2026</span></a>
+      <a href="https://www.ddxconference.com/london"><b>London</b><span>Late 2026</span></a>
+      <a href="https://www.ddxconference.com/tokyo"><b>Tokyo</b><span>12 February 2027</span></a>
+      <a href="https://www.ddxconference.com/dubai"><b>Dubai</b><span>Early 2027</span></a>
+      <a class="cta" href="https://luma.com/ddx-sd27"><b>San Diego ’27</b><span>Early-bird tickets open</span></a>
+    </div>
+
+    <div class="eyebrow" style="margin-top:64px"><i></i><span>Sources</span><span>All external figures published in 2026</span></div>
+    <ol class="sources">
+      <li>Designer Fund with Foundation Capital, <a href="https://designerfund.substack.com/p/ai-in-design-2026-the-inflection">AI in Design 2026: The Inflection Point Is Here</a>, May 2026. 900+ designers, 60+ countries.</li>
+      <li>Figma, <a href="https://www.figma.com/blog/2026-ai-report/">Figma’s 2026 AI Report</a>, June 2026. 8,403 survey responses and 639 interviews across 10 markets.</li>
+      <li>Figma, <a href="https://www.figma.com/blog/state-of-the-designer-2026/">State of the Designer 2026</a>, February 2026. 906 digital designers surveyed by NewtonX: 91% say AI improves the quality of their designs.</li>
+      <li>Maze, <a href="https://maze.co/blog/future-user-research-2026/">The Future of User Research Report 2026</a>, March 2026. Nearly 500 researchers, designers and product professionals.</li>
+      <li>McKinsey &amp; QuantumBlack, <a href="https://www.mckinsey.com/capabilities/quantumblack/our-insights/the-state-of-ai">The State of AI in 2026: On the Road to ROI</a>, August 2026. 1,719 respondents.</li>
+      <li>Gartner, <a href="https://www.gartner.com/en/newsroom/press-releases/2026-03-16-gartner-marketing-survey-finds-50-percent-of-consumers-prefer-brands-that-avoid-using-genai-in-consumer-facing-content0">50% of consumers prefer brands that avoid GenAI in consumer-facing content</a>, March 2026, and <a href="https://www.gartner.com/en/newsroom/press-releases/2026-06-09-gartner-survey-finds-49-of-u-s-consumers-say-genai-has-made-content-quality-worse">49% say GenAI has made content quality worse</a>, June 2026.</li>
+      <li>BCG, <a href="https://www.bcg.com/publications/2026/as-ai-investments-surge-ceos-take-the-lead">AI Radar 2026: As AI Investments Surge, CEOs Take the Lead</a>, January 2026. 2,360 executives, 16 markets.</li>
+      <li>Stanford HAI, <a href="https://hai.stanford.edu/news/inside-the-ai-index-12-takeaways-from-the-2026-report">The 2026 AI Index Report</a>, April 2026.</li>
+      <li>Adobe, <a href="https://business.adobe.com/resources/digital-trends-report.html">2026 AI and Digital Trends Report</a>, February 2026. 3,000 executives and 4,000 consumers surveyed by Oxford Economics.</li>
+      <li>Pew Research Center, <a href="https://www.pewresearch.org/internet/2026/06/17/americans-and-ai-2026-chatbots-smart-devices-and-views-on-impact/">Americans and AI 2026</a>, June 2026: 49% of US adults use AI chatbots, 63% say AI is advancing too quickly.</li>
+      <li>Nielsen Norman Group, <a href="https://www.nngroup.com/articles/state-of-ux-2026/">State of UX 2026: Design Deeper to Differentiate</a>, January 2026, which calls 2026 “the year of AI fatigue” and names trust as the major design problem for AI experiences.</li>
+      <li>DDX programme and speaker roles: <a href="https://www.ddxconference.com/sd-agenda">ddxconference.com/sd-agenda</a>. Attendance and alumni figures: DDX registration data and ddxconference.com/sandiego.</li>
+    </ol>
+  </div>
+</section>
+
+<footer class="wrap">
+  <img src="assets/img/ddx-wordmark.png" alt="DDX">
+  <span>DDX is hosted by FastForward Global. Programme, roles and titles as published on ddxconference.com/sd-agenda; speaker statements from their DDX submissions.</span>
+  <span>ddxconference.com</span>
+</footer>
+
+</body>
+</html>

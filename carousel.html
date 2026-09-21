@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>DDX'26 San Diego — Recap carousel</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Tinos:ital@1&display=swap">
+<style>
+@page{size:1080px 1350px;margin:0}
+*{box-sizing:border-box;margin:0;padding:0}
+:root{--bg:#050505;--line:#242424;--y:#FFF204;--dim:#9A9A9A;--faint:#5C5C5C;--font:"Helvetica Neue",Helvetica,Arial,sans-serif;--serif:Tinos,"Times New Roman",serif}
+html,body{background:var(--bg);color:#fff;font-family:var(--font);-webkit-font-smoothing:antialiased;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+img{display:block;max-width:100%}
+.s{position:relative;width:1080px;height:1350px;overflow:hidden;page-break-after:always;break-after:page;padding:80px 72px 150px;display:flex;flex-direction:column;background:var(--bg)}
+.s:last-child{break-after:auto;page-break-after:auto}
+.eyebrow{display:flex;align-items:center;gap:12px;font-size:19px;font-weight:700;letter-spacing:.24em;text-transform:uppercase;color:var(--y)}
+.eyebrow i{width:26px;height:3px;background:var(--y)}
+.eyebrow span+span{color:rgba(255,255,255,.6)}
+h1{font-size:118px;line-height:.9;letter-spacing:-.04em;font-weight:700;text-transform:uppercase;margin-top:26px;text-wrap:balance}
+h1 em{font-style:normal;color:var(--y)}
+h2{font-size:82px;line-height:.98;letter-spacing:-.035em;font-weight:700;margin-top:28px;text-wrap:balance}
+h2 span{color:var(--y)}
+p.body{margin-top:34px;font-size:30px;line-height:1.42;color:rgba(255,255,255,.8);text-wrap:pretty}
+.foot{position:absolute;left:72px;right:72px;bottom:56px;display:flex;justify-content:space-between;align-items:center;font-size:17px;letter-spacing:.16em;text-transform:uppercase;color:var(--faint)}
+.foot img{width:72px}
+.foot .swipe{color:var(--y)}
+/* cover */
+.cover{padding:0;justify-content:flex-end}
+.cover img.bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:58% 40%}
+.cover::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(5,5,5,.3),rgba(5,5,5,.05) 35%,rgba(5,5,5,.85) 72%,#050505)}
+.cover .in{position:relative;padding:0 72px 96px}
+.cover .mark{position:absolute;top:72px;left:72px;width:150px}
+.cover h1{font-size:176px;line-height:.84}
+.cover .meta{margin-top:30px;font-size:26px;line-height:1.4;color:rgba(255,255,255,.85)}
+.cover .meta b{color:#fff}
+/* numbers */
+.numbers{margin-top:60px;display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--line);border-left:1px solid var(--line)}
+.numbers div{padding:44px 36px 40px;border-right:1px solid var(--line);border-bottom:1px solid var(--line)}
+.numbers strong{display:block;font-size:130px;line-height:1;letter-spacing:-.04em;font-variant-numeric:tabular-nums}
+.numbers span{display:block;margin-top:16px;font-size:20px;letter-spacing:.14em;text-transform:uppercase;color:var(--dim)}
+.numbers .hi strong{color:var(--y)}
+/* theme */
+.theme .stat{margin-top:auto;border-left:4px solid var(--y);padding-left:30px}
+.theme .stat .k{font-size:18px;letter-spacing:.2em;text-transform:uppercase;color:var(--y)}
+.theme .stat .n{margin-top:12px;font-size:150px;line-height:.95;letter-spacing:-.05em;font-variant-numeric:tabular-nums}
+.theme .stat .n small{font-size:.5em;color:var(--dim)}
+.theme .stat .t{margin-top:16px;font-size:26px;line-height:1.4;color:rgba(255,255,255,.82);max-width:34ch}
+.theme .stat .src{margin-top:10px;font-size:18px;color:var(--faint)}
+.who{margin-top:36px;display:flex;gap:-10px}
+.who img{width:104px;height:104px;border-radius:50%;object-fit:cover;background:#000;border:4px solid var(--bg);margin-right:-18px}
+.who .names{align-self:center;margin-left:34px;font-size:22px;line-height:1.35;color:var(--dim)}
+/* quote */
+.quote blockquote{margin-top:auto;margin-bottom:auto;font-family:var(--serif);font-style:italic;font-size:64px;line-height:1.2;text-wrap:pretty}
+.quote blockquote::before{content:"“";color:var(--y)}
+.quote blockquote::after{content:"”";color:var(--y)}
+.quote .cap{display:flex;align-items:center;gap:26px;margin-bottom:60px}
+.quote .cap img{width:130px;height:130px;border-radius:50%;object-fit:cover;background:#000}
+.quote .cap b{display:block;font-size:30px}
+.quote .cap span{display:block;font-size:22px;color:var(--dim);margin-top:6px}
+/* photos */
+.grid{margin-top:48px;display:grid;grid-template-columns:1fr 1fr;grid-auto-rows:296px;gap:12px}
+.grid figure{overflow:hidden;background:#000}
+.grid img{width:100%;height:100%;object-fit:cover}
+.grid .w2{grid-column:span 2}
+/* next */
+.next{margin-top:auto;display:grid;grid-template-columns:1fr;gap:0;border-top:1px solid var(--line)}
+.next div{display:flex;justify-content:space-between;align-items:baseline;padding:30px 0;border-bottom:1px solid var(--line)}
+.next b{font-size:60px;letter-spacing:-.03em;text-transform:uppercase}
+.next span{font-size:24px;color:var(--dim)}
+.next .cta{background:var(--y);color:#000;padding:30px 28px;margin-top:20px;border:0}
+.next .cta span{color:rgba(0,0,0,.65)}
+.logos{margin-top:44px;display:flex;flex-wrap:wrap;align-items:center;gap:36px 44px}
+.logos img{height:38px;width:auto}
+.logos img.tall{height:62px}
+.logos img.short{height:30px}
+</style>
+</head>
+<body>
+
+<!-- 1 cover -->
+<section class="s cover">
+  <img class="bg" src="assets/img/photos/hero.jpg" alt="">
+  <img class="mark" src="assets/img/ddx-wordmark.png" alt="DDX">
+  <div class="in">
+    <div class="eyebrow"><i></i><span>Recap</span><span>San Diego · 17 Sep 2026</span></div>
+    <h1>The<br>Inflection<br><em>Point</em></h1>
+    <p class="meta"><b>DDX’26 San Diego.</b> 25 design and product leaders, one question: if AI makes “good enough” free, what is the job now?</p>
+  </div>
+</section>
+
+<!-- 2 numbers -->
+<section class="s">
+  <div class="eyebrow"><i></i><span>The day</span></div>
+  <h2>One day.<br>Three stages.<br><span>One question.</span></h2>
+  <div class="numbers">
+    <div class="hi"><strong>25</strong><span>Speakers</span></div>
+    <div><strong>3</strong><span>Stages</span></div>
+    <div><strong>9</strong><span>Table talks</span></div>
+    <div class="hi"><strong>300+</strong><span>Leaders in the room</span></div>
+  </div>
+  <div class="foot"><img src="assets/img/ddx-wordmark.png" alt=""><span>UC San Diego Park &amp; Market</span><span class="swipe">Swipe →</span></div>
+</section>
+
+<!-- 3 theme 1 -->
+<section class="s theme">
+  <div class="eyebrow"><i></i><span>Takeaway 1 of 5</span></div>
+  <h2>Good is free now. <span>Great is the job.</span></h2>
+  <p class="body">When everyone can clear the bar for good, taste, judgment and a durable point of view are what separate teams. AI didn’t change design; it exposed how shallow most of it was.</p>
+  <div class="who"><img src="assets/img/speakers/richard-ward.webp" alt=""><img src="assets/img/speakers/kevin-wong.webp" alt=""><img src="assets/img/speakers/jaleesa-chagan.webp" alt=""><div class="names">Richard Ward, Otter.ai · Kevin Wong, Webflow · Jaleesa Chagan, GAIN</div></div>
+  <div class="stat"><div class="k">2026 evidence</div><div class="n">91<small>%</small></div><div class="t">of designers now use AI for design tasks every week, up from 54% a year ago.</div><div class="src">Designer Fund, AI in Design 2026</div></div>
+  <div class="foot"><img src="assets/img/ddx-wordmark.png" alt=""><span>DDX’26 San Diego</span><span class="swipe">Swipe →</span></div>
+</section>
+
+<!-- 4 theme 2 -->
+<section class="s theme">
+  <div class="eyebrow"><i></i><span>Takeaway 2 of 5</span></div>
+  <h2>Research stops being a project <span>and becomes a pulse.</span></h2>
+  <p class="body">When teams ship weekly, episodic studies arrive after the decision. TaylorMade’s AI caddie showed the alternative: research before, A/B tests during, evaluation after, always on.</p>
+  <div class="who"><img src="assets/img/speakers/prayag-narula.webp" alt=""><img src="assets/img/speakers/harriet-swan.png" alt=""><img src="assets/img/speakers/katie-niles.jpg" alt=""><div class="names">Prayag Narula, Marvin · Harriet Swan, GAIN · Katie Niles, TaylorMade</div></div>
+  <div class="stat"><div class="k">2026 evidence</div><div class="n">8 → 22<small>%</small></div><div class="t">of organisations now call research essential to all levels of business strategy, nearly tripling in a year.</div><div class="src">Maze, Future of User Research 2026</div></div>
+  <div class="foot"><img src="assets/img/ddx-wordmark.png" alt=""><span>DDX’26 San Diego</span><span class="swipe">Swipe →</span></div>
+</section>
+
+<!-- 5 theme 3 -->
+<section class="s theme">
+  <div class="eyebrow"><i></i><span>Takeaway 3 of 5</span></div>
+  <h2>Stop designing screens. <span>Start designing decisions.</span></h2>
+  <p class="body">Design’s value is measured by its influence on what gets built, not by deliverables. The next brief is the organisation itself: its systems, ownership and invisible labour.</p>
+  <div class="who"><img src="assets/img/speakers/chris-gielow.webp" alt=""><img src="assets/img/speakers/twisha-shah-brandenburg.webp" alt=""><img src="assets/img/speakers/diana-tobey.webp" alt=""><div class="names">Chris Gielow, UX Speakeasy · Twisha Shah-Brandenburg, Target · Diana Tobey, IDEO</div></div>
+  <div class="stat"><div class="k">2026 evidence</div><div class="n">21 → 41<small>%</small></div><div class="t">of designers now do development work, doubling in a year. The roles converge on the decision.</div><div class="src">Figma, 2026 AI Report</div></div>
+  <div class="foot"><img src="assets/img/ddx-wordmark.png" alt=""><span>DDX’26 San Diego</span><span class="swipe">Swipe →</span></div>
+</section>
+
+<!-- 6 theme 4 -->
+<section class="s theme">
+  <div class="eyebrow"><i></i><span>Takeaway 4 of 5</span></div>
+  <h2>The human stays irrational, <span>and irreplaceable.</span></h2>
+  <p class="body">The rational user most products are designed for doesn’t exist. AI can read the deck; it can’t read the room. As machines generate more, human originality becomes the scarce resource.</p>
+  <div class="who"><img src="assets/img/speakers/don-norman.webp" alt=""><img src="assets/img/speakers/rowan-salama.webp" alt=""><img src="assets/img/speakers/stephanie-mencarelli.webp" alt=""><img src="assets/img/speakers/kara-fitzpatrick.jpg" alt=""><div class="names">Don Norman · Rowan Salama, Careem · Stephanie Mencarelli, Adobe · Kara Fitzpatrick</div></div>
+  <div class="stat"><div class="k">2026 evidence</div><div class="n">50<small>%</small></div><div class="t">of US consumers prefer brands that don’t use generative AI in customer-facing content.</div><div class="src">Gartner, March 2026</div></div>
+  <div class="foot"><img src="assets/img/ddx-wordmark.png" alt=""><span>DDX’26 San Diego</span><span class="swipe">Swipe →</span></div>
+</section>
+
+<!-- 7 theme 5 -->
+<section class="s theme">
+  <div class="eyebrow"><i></i><span>Takeaway 5 of 5</span></div>
+  <h2>Context is the asset. <span>The experience is the business.</span></h2>
+  <p class="body">Models change weekly; structured knowledge compounds. And when an agent is the one browsing and buying, the digital experience is no longer a layer on the business. It is the business.</p>
+  <div class="who"><img src="assets/img/speakers/diana-wolosin.webp" alt=""><img src="assets/img/speakers/aj-azzi.webp" alt=""><img src="assets/img/speakers/scott-robinson.webp" alt=""><img src="assets/img/speakers/ann-kostopanagiotou.jpg" alt=""><div class="names">Diana Wolosin, Netflix · AJ Azzi, Askable · Scott Robinson, FreshForm · Ann Kostopanagiotou, Mondo Robot</div></div>
+  <div class="stat"><div class="k">2026 evidence</div><div class="n">20 → 77<small>%</small></div><div class="t">AI agents’ success rate on real-world tasks, in one year.</div><div class="src">Stanford HAI, 2026 AI Index</div></div>
+  <div class="foot"><img src="assets/img/ddx-wordmark.png" alt=""><span>DDX’26 San Diego</span><span class="swipe">Swipe →</span></div>
+</section>
+
+<!-- 8 quote -->
+<section class="s quote">
+  <div class="eyebrow"><i></i><span>Heard on stage</span></div>
+  <blockquote>The next era of innovation will not belong to the companies that automate the fastest, but to those that intentionally design systems in which humans and intelligent technology can learn, adapt, and make better decisions together.</blockquote>
+  <div class="cap"><img src="assets/img/speakers/twisha-shah-brandenburg.webp" alt=""><div><b>Twisha Shah-Brandenburg</b><span>Principal, Target</span></div></div>
+  <div class="foot"><img src="assets/img/ddx-wordmark.png" alt=""><span>DDX’26 San Diego</span><span class="swipe">Swipe →</span></div>
+</section>
+
+<!-- 9 photos -->
+<section class="s">
+  <div class="eyebrow"><i></i><span>The room</span></div>
+  <h2>Thank you, <span>San Diego.</span></h2>
+  <div class="grid">
+    <figure class="w2"><img src="assets/img/photos/DSC09601.jpg" alt=""></figure>
+    <figure><img src="assets/img/photos/DSC09649.jpg" alt=""></figure>
+    <figure><img src="assets/img/photos/DSC09551.jpg" alt=""></figure>
+    <figure class="w2"><img src="assets/img/photos/DSC09472.jpg" alt=""></figure>
+  </div>
+  <div class="foot"><img src="assets/img/ddx-wordmark.png" alt=""><span>Photos: Desmond Chua &amp; Nicole Gosé</span><span class="swipe">Swipe →</span></div>
+</section>
+
+<!-- 10 next -->
+<section class="s">
+  <div class="eyebrow"><i></i><span>Made possible by</span></div>
+  <div class="logos">
+    <img src="assets/img/partners/freshform.png" alt="FreshForm"><img class="tall" src="assets/img/partners/bcca.png" alt="BCCA"><img class="tall" src="assets/img/partners/sd-design-week.png" alt="San Diego Design Week"><img class="short" src="assets/img/partners/dscout.png" alt="dscout"><img class="short" src="assets/img/partners/gain.png" alt="GAIN"><img src="assets/img/partners/marvin.png" alt="Marvin"><img class="short" src="assets/img/partners/askable.png" alt="Askable"><img src="assets/img/partners/mondo-robot.svg" alt="Mondo Robot">
+  </div>
+  <h2 style="margin-top:80px">Same exchange, <span>next city.</span></h2>
+  <div class="next">
+    <div><b>Miami</b><span>25 Sep 2026</span></div>
+    <div><b>Tokyo</b><span>12 Feb 2027</span></div>
+    <div class="cta"><b>San Diego ’27</b><span>Early-bird tickets live · ddxconference.com</span></div>
+  </div>
+  <div class="foot"><img src="assets/img/ddx-wordmark.png" alt=""><span>ddxconference.com</span><span></span></div>
+</section>
+
+</body>
+</html>
