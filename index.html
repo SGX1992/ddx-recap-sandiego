@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
+<script>document.documentElement.classList.add('js')</script>
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>DDX San Diego 2026 Report</title>
 <meta name="description" content="Conference report from DDX'26 San Diego, 17 September 2026: what design and product leaders agreed on at the inflection point of AI-native product work.">
@@ -151,7 +152,60 @@ section:first-of-type{border-top:0}
 footer{padding:36px 0 60px;border-top:1px solid var(--line);font-size:12px;color:var(--text-faint);display:flex;flex-wrap:wrap;gap:12px 28px;align-items:center}
 footer img{width:64px}
 @media print{.top{position:static}section{break-inside:auto}.q{break-inside:avoid}}
-@media (prefers-reduced-motion:reduce){.gallery img{transition:none}}
+/* reveal + motion */
+@media (prefers-reduced-motion:reduce){*{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;scroll-behavior:auto!important}}
+.js .reveal{opacity:0;transition:opacity .6s ease var(--d,0s),transform .6s cubic-bezier(.16,1,.3,1) var(--d,0s),filter .5s ease var(--d,0s)}
+.js .reveal.in{opacity:1}
+.js .reveal:not(.word){transform:translateY(26px);will-change:opacity,transform}
+.js .reveal:not(.word).in{transform:none}
+.js .eyebrow.reveal i{width:0;transition:width .5s cubic-bezier(.16,1,.3,1) calc(var(--d,0s) + .15s)}
+.js .eyebrow.reveal.in i{width:22px}
+
+/* fancy text: word-by-word mask reveal, used for headlines/leads/quotes/body copy */
+.split-line{display:inline-block;overflow:hidden;vertical-align:top}
+.js .reveal.word{display:inline-block;transform:translateY(105%);filter:blur(7px);transition:transform .65s cubic-bezier(.16,1,.3,1) var(--d,0s),opacity .4s ease var(--d,0s),filter .55s ease var(--d,0s);will-change:opacity,transform,filter}
+.js .reveal.word.in{transform:translateY(0);filter:blur(0)}
+
+/* hero entrance */
+.hero h1 .ln{display:block;overflow:hidden}
+.hero h1 .ln>span{display:block;transform:translateY(112%);animation:lnUp .85s cubic-bezier(.16,1,.3,1) forwards}
+.hero h1 .ln:nth-child(1)>span{animation-delay:.18s}
+.hero h1 .ln:nth-child(2)>span{animation-delay:.3s}
+.hero h1 .ln:nth-child(3)>span{animation-delay:.42s}
+@keyframes lnUp{to{transform:translateY(0)}}
+.hero__img{animation:heroScale 1.8s cubic-bezier(.16,1,.3,1) both}
+@keyframes heroScale{from{transform:scale(1.07)}to{transform:scale(1)}}
+.hero .eyebrow{opacity:0;animation:heroFade .6s ease .05s forwards}
+.hero__meta{opacity:0;animation:heroFade .6s ease .58s forwards}
+.hero__credit{opacity:0;animation:heroFade .6s ease .7s forwards}
+@keyframes heroFade{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+
+/* reading progress */
+#progress{position:fixed;top:56px;left:0;height:2px;width:0%;background:var(--accent);z-index:39;transition:width .1s linear}
+@media print{#progress{display:none}}
+
+/* nav active state */
+.top nav a{position:relative;padding-bottom:3px;transition:color .25s ease}
+.top nav a::after{content:"";position:absolute;left:0;right:100%;bottom:-1px;height:1px;background:var(--accent);transition:right .35s cubic-bezier(.16,1,.3,1)}
+.top nav a:hover::after,.top nav a.active::after{right:0}
+.top nav a.active{color:var(--accent)}
+.brand-mark{transition:transform .3s cubic-bezier(.16,1,.3,1)}
+.top__in>a:hover .brand-mark{transform:scale(1.08)}
+
+/* hover polish */
+.q{transition:transform .35s cubic-bezier(.16,1,.3,1),border-color .35s ease,box-shadow .35s ease}
+.q:hover{transform:translateY(-5px);border-color:rgba(255,255,255,.28);box-shadow:0 18px 36px -18px rgba(0,0,0,.6)}
+.partners span{transition:border-color .25s ease,color .25s ease,transform .25s ease}
+.partners span:hover{border-color:rgba(255,255,255,.4);color:#fff;transform:translateY(-2px)}
+.next a{transition:background .25s ease,transform .25s cubic-bezier(.16,1,.3,1)}
+.next a:hover{transform:translateY(-3px)}
+.next .cta:hover{filter:brightness(1.07)}
+
+/* back to top */
+#toTop{position:fixed;right:20px;bottom:20px;z-index:50;width:46px;height:46px;border-radius:50%;border:0;background:var(--accent);color:#000;font-size:18px;cursor:pointer;display:flex;align-items:center;justify-content:center;opacity:0;transform:translateY(14px) scale(.88);pointer-events:none;transition:opacity .35s ease,transform .4s cubic-bezier(.16,1,.3,1),background .25s ease;box-shadow:0 10px 26px -8px rgba(0,0,0,.6)}
+#toTop.show{opacity:1;transform:none;pointer-events:auto}
+#toTop:hover{background:#fff}
+@media print{#toTop{display:none}}
 </style>
 </head>
 <body>
@@ -165,13 +219,14 @@ footer img{width:64px}
     </nav>
   </div>
 </header>
+<div id="progress" aria-hidden="true"></div>
 
 <section class="hero">
   <img class="hero__img" src="assets/img/photos/hero.jpg" alt="The Guggenheim Theatre at UC San Diego Park & Market during DDX'26 San Diego" fetchpriority="high">
   <span class="hero__credit">Photos · Desmond Chua & Nicole Gosé</span>
   <div class="wrap">
     <div class="eyebrow"><i></i><span>Conference report</span><span>17 September 2026</span></div>
-    <h1>The<br>Inflection<br><em>Point</em></h1>
+    <h1><span class="ln"><span>The</span></span><span class="ln"><span>Inflection</span></span><span class="ln"><span><em>Point</em></span></span></h1>
     <div class="hero__meta">
       <span><b>DDX’26 San Diego</b></span>
       <span>UC San Diego Park &amp; Market</span>
@@ -489,5 +544,196 @@ footer img{width:64px}
   <span>ddxconference.com</span>
 </footer>
 
+<button id="toTop" aria-label="Back to top" title="Back to top">↑</button>
+<noscript><style>.reveal{opacity:1!important;transform:none!important}#progress,#toTop{display:none!important}</style></noscript>
+<script>
+(function(){
+  var reduced = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var supportsIO = 'IntersectionObserver' in window;
+
+  /* reading progress */
+  var progress = document.getElementById('progress');
+  if (progress) {
+    var onScroll = function(){
+      var h = document.documentElement;
+      var max = h.scrollHeight - h.clientHeight;
+      progress.style.width = (max > 0 ? (h.scrollTop / max) * 100 : 0) + '%';
+    };
+    window.addEventListener('scroll', onScroll, {passive:true});
+    onScroll();
+  }
+
+  /* back to top */
+  var toTop = document.getElementById('toTop');
+  if (toTop) {
+    toTop.addEventListener('click', function(){
+      window.scrollTo({top:0, behavior: reduced ? 'auto' : 'smooth'});
+    });
+    window.addEventListener('scroll', function(){
+      toTop.classList.toggle('show', window.scrollY > window.innerHeight * 0.8);
+    }, {passive:true});
+  }
+
+  /* scrollspy */
+  var navLinks = Array.prototype.slice.call(document.querySelectorAll('.top nav a[href^="#"]'));
+  if (navLinks.length && supportsIO) {
+    var spy = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if (!e.isIntersecting) return;
+        var link = navLinks.filter(function(a){ return a.getAttribute('href') === '#' + e.target.id; })[0];
+        if (!link) return;
+        navLinks.forEach(function(a){ a.classList.remove('active'); });
+        link.classList.add('active');
+      });
+    }, {rootMargin:'-45% 0px -50% 0px', threshold:0});
+    navLinks.forEach(function(a){
+      var sec = document.querySelector(a.getAttribute('href'));
+      if (sec) spy.observe(sec);
+    });
+  }
+
+  /* reveal + count-up (skipped entirely for reduced motion: nothing gets hidden) */
+  if (reduced) return;
+
+  var revealed = new Set();
+
+  function animateDigits(node){
+    var original = node.textContent;
+    var re = /\d[\d,]*/g, m, targets = [];
+    while ((m = re.exec(original))) targets.push({start:m.index, end:m.index + m[0].length, value:parseInt(m[0].replace(/,/g,''),10), comma:m[0].indexOf(',') > -1});
+    if (!targets.length) return;
+    var dur = 900, t0 = null;
+    function step(ts){
+      if (t0 === null) t0 = ts;
+      var p = Math.min(1, (ts - t0) / dur), eased = 1 - Math.pow(1 - p, 3), out = '', cursor = 0;
+      targets.forEach(function(t){
+        out += original.slice(cursor, t.start);
+        var cur = Math.round(t.value * eased);
+        out += t.comma ? cur.toLocaleString('en-US') : String(cur);
+        cursor = t.end;
+      });
+      out += original.slice(cursor);
+      node.textContent = out;
+      if (p < 1) requestAnimationFrame(step); else node.textContent = original;
+    }
+    requestAnimationFrame(step);
+  }
+
+  function markVisible(el){
+    if (revealed.has(el)) return;
+    revealed.add(el);
+    el.classList.add('in');
+    if (el.matches('.numbers > div')) {
+      var strong = el.querySelector('strong');
+      if (strong && strong.firstChild) animateDigits(strong.firstChild);
+    } else if (el.matches('.evidence')) {
+      var n = el.querySelector('.n');
+      if (n && n.firstChild) animateDigits(n.firstChild);
+    }
+  }
+
+  function revealWords(container){
+    if (revealed.has(container)) return;
+    revealed.add(container);
+    container.querySelectorAll('.reveal.word').forEach(function(w){ w.classList.add('in'); });
+  }
+
+  var io = supportsIO ? new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if (!e.isIntersecting) return;
+      var el = e.target;
+      if (el.classList.contains('reveal')) markVisible(el); else revealWords(el);
+      io.unobserve(el);
+    });
+  }, {rootMargin:'0px 0px -8% 0px', threshold:.1}) : null;
+
+  function group(containerSel, itemSel, opts){
+    opts = opts || {};
+    var stag = opts.stagger || 0.06, cap = opts.cap == null ? 999 : opts.cap;
+    document.querySelectorAll(containerSel).forEach(function(container){
+      var items = itemSel ? container.querySelectorAll(itemSel) : [container];
+      items.forEach(function(el, i){
+        el.classList.add('reveal');
+        el.style.setProperty('--d', (Math.min(i, cap) * stag).toFixed(3) + 's');
+        if (io) io.observe(el); else markVisible(el);
+      });
+    });
+  }
+
+  /* splits an element's text into masked, individually-staggered words —
+     the "fancy" reveal for headlines, leads, quotes and body copy.
+     Screen readers get the plain original sentence via aria-label. */
+  function splitWords(el){
+    var full = el.textContent;
+    el.setAttribute('aria-label', full);
+    var walker = document.createTreeWalker(el, NodeFilter.SHOW_TEXT, null);
+    var nodes = [], n;
+    while ((n = walker.nextNode())) nodes.push(n);
+    var wi = 0;
+    nodes.forEach(function(node){
+      var parts = node.textContent.split(/(\s+)/);
+      var frag = document.createDocumentFragment();
+      parts.forEach(function(part){
+        if (part === '') return;
+        if (/^\s+$/.test(part)) { frag.appendChild(document.createTextNode(part)); return; }
+        var outer = document.createElement('span');
+        outer.className = 'split-line';
+        outer.setAttribute('aria-hidden', 'true');
+        var inner = document.createElement('span');
+        inner.className = 'reveal word';
+        inner.textContent = part;
+        inner.style.setProperty('--d', (Math.min(wi, 30) * 0.018).toFixed(3) + 's');
+        wi++;
+        outer.appendChild(inner);
+        frag.appendChild(outer);
+      });
+      node.parentNode.replaceChild(frag, node);
+    });
+  }
+
+  function textReveal(selector){
+    document.querySelectorAll(selector).forEach(function(el){
+      splitWords(el);
+      if (io) io.observe(el); else revealWords(el);
+    });
+  }
+
+  try {
+    group('section:not(.hero) .eyebrow', null, {});
+
+    textReveal('#brief h2');
+    textReveal('#brief .lead');
+    textReveal('#brief > .wrap > div:not(.numbers) > p:not(.lead)');
+    textReveal('#themes > .wrap > h2');
+    textReveal('.theme h3');
+    textReveal('.theme p');
+    textReveal('#voices > .wrap > h2');
+    textReveal('.q blockquote');
+    textReveal('#day > .wrap > h2');
+    textReveal('#room > .wrap > h2');
+    textReveal('#next > .wrap > h2');
+
+    group('.numbers', ':scope > div', {stagger:.06});
+    group('.theme .who', ':scope > a', {stagger:.04, cap:6});
+    group('#themes .themes', ':scope > article > aside > .evidence', {stagger:.12});
+    group('.quotes', ':scope > figure > figcaption', {stagger:.03, cap:10});
+    group('.stage', ':scope > ol > li', {stagger:.045, cap:10});
+    group('.tables', ':scope > h3', {stagger:0});
+    group('.tables ul', ':scope > li', {stagger:.035, cap:10});
+    group('.gallery', ':scope > figure', {stagger:.035, cap:12});
+    group('.partners', ':scope > span', {stagger:.025, cap:14});
+    group('.next', ':scope > a', {stagger:.08});
+    group('.sources', ':scope > li', {stagger:.03, cap:12});
+    group('footer', null, {});
+  } catch (err) {
+    document.querySelectorAll('.reveal').forEach(function(el){ el.classList.add('in'); });
+  }
+
+  /* safety net: never leave anything stuck invisible */
+  setTimeout(function(){
+    document.querySelectorAll('.reveal:not(.in)').forEach(function(el){ el.classList.add('in'); });
+  }, 3000);
+})();
+</script>
 </body>
 </html>
