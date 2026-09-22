@@ -76,7 +76,7 @@ function evidence(s, x, y, w, k, n, t, src) {
   const y0 = TOP + px(280);
   s.addText('If AI can produce “good enough” design on demand, what is the job of a design and product leader now?', { x: M, y: y0, w: px(760), h: px(200), fontFace: SANS, fontSize: 17, color: WHITE, margin: 0, isTextBox: true, valign: 'top', lineSpacingMultiple: 1.2 });
   s.addText('Twenty-five leaders from Adobe, Google, IDEO, Webflow, Otter.ai, Target, Netflix, Careem, TaylorMade, Marvin, Dscout and the Obama White House took the question to a room that came to argue back. Don Norman opened the day; three enterprise design leaders closed it by comparing the expectations of the role with its reality in 2026.', { x: M, y: y0 + px(210), w: px(760), h: px(260), fontFace: SANS, fontSize: 11.5, color: 'BBBBBB', margin: 0, isTextBox: true, valign: 'top', lineSpacingMultiple: 1.25 });
-  const cells = [['25', 'Speakers on stage', true], ['3', 'Stages in parallel'], ['3 · 6', 'Panels · Workshops'], ['9', 'Table talks'], ['300+', 'Leaders registered', true], ['3,000+', 'DDX alumni worldwide']];
+  const cells = [['25', 'Speakers on stage', true], ['3', 'Stages in parallel'], ['3 · 6', 'Panels · Workshops'], ['9', 'Table talks'], ['400+', 'Leaders registered', true], ['4,000+', 'DDX alumni worldwide']];
   const gx = M + px(980), gy = y0, cw = px(355), ch = px(165);
   cells.forEach(([n, l, hi], i) => {
     const cx = gx + (i % 2) * cw, cy = gy + Math.floor(i / 2) * ch;

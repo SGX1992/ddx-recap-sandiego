@@ -4,7 +4,7 @@
 
 **DDX'26 San Diego in ten slides.**
 
-If AI makes "good enough" free, what is the job of a design and product leader now? That was the question 25 speakers and 300+ leaders took on at UC San Diego Park & Market on 17 September.
+If AI makes "good enough" free, what is the job of a design and product leader now? That was the question 25 speakers and 400+ leaders took on at UC San Diego Park & Market on 17 September.
 
 Five things the room agreed on:
 
@@ -26,7 +26,7 @@ Next stop: Miami, 25 September. San Diego '27 early-bird tickets are already liv
 
 DDX'26 San Diego, in ten slides. ⚡
 
-25 speakers. 3 stages. 300+ design and product leaders. One question: if AI makes "good enough" free, what is the job now?
+25 speakers. 3 stages. 400+ design and product leaders. One question: if AI makes "good enough" free, what is the job now?
 
 Swipe for the five takeaways, one quote we keep coming back to, and the room that made it.
 
