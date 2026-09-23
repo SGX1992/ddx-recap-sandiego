@@ -56,6 +56,10 @@ section:first-of-type{border-top:0}
 .hero__meta{margin-top:22px;display:flex;flex-wrap:wrap;gap:8px 28px;font-size:14px;color:rgba(255,255,255,.85)}
 .hero__meta b{font-weight:600;color:#fff}
 .hero__credit{position:absolute;right:var(--gutter);top:76px;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.55)}
+.hero__back{margin-top:26px;display:inline-flex;align-items:center;gap:10px;padding:12px 22px;border:1px solid rgba(255,255,255,.3);border-radius:999px;font-size:13px;font-weight:600;color:#fff;text-decoration:none;transition:border-color .25s ease,background .25s ease,transform .25s cubic-bezier(.16,1,.3,1)}
+.hero__back i{font-style:normal;transition:transform .25s cubic-bezier(.16,1,.3,1)}
+.hero__back:hover{border-color:var(--accent);background:rgba(var(--accent-rgb),.1);transform:translateY(-2px)}
+.hero__back:hover i{transform:translateX(-4px)}
 
 /* brief */
 .brief{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:clamp(28px,5vw,72px);align-items:start}
@@ -177,7 +181,8 @@ footer img{width:64px}
 @keyframes heroScale{from{transform:scale(1.07)}to{transform:scale(1)}}
 .hero .eyebrow{opacity:0;animation:heroFade .6s ease .05s forwards}
 .hero__meta{opacity:0;animation:heroFade .6s ease .58s forwards}
-.hero__credit{opacity:0;animation:heroFade .6s ease .7s forwards}
+.hero__back{opacity:0;animation:heroFade .6s ease .72s forwards}
+.hero__credit{opacity:0;animation:heroFade .6s ease .84s forwards}
 @keyframes heroFade{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
 
 /* reading progress */
@@ -232,6 +237,7 @@ footer img{width:64px}
       <span>UC San Diego Park &amp; Market</span>
       <span>Design &amp; Product Leaders Exchange on the Future of Digital Innovation</span>
     </div>
+    <a class="hero__back" href="https://www.ddxconference.com/sandiego"><i>←</i> Back to the DDX San Diego page</a>
   </div>
 </section>
 

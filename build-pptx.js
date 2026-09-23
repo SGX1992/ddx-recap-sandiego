@@ -86,7 +86,25 @@ function evidence(s, x, y, w, k, n, t, src) {
   });
 }
 
-/* ---------- 3 theme index ---------- */
+/* ---------- 3 photos ---------- */
+{
+  const s = base(3);
+  eyebrow(s, TOP, 'The room', 'Photos by Desmond Chua and Nicole Gosé');
+  const y0 = TOP + px(70), gw = W - 2 * M, g = px(12), rh = px(384), cu = (gw - 5 * g) / 6;
+  const tiles = [['DSC09601.jpg', 3, 'Drive, Play, Eat panel'], ['DSC09472.jpg', 2, 'Park & Market atrium'], ['DSC09562.jpg', 1, 'Stephanie Mencarelli'], ['DSC09649.jpg', 2, 'Table talks in the breaks'], ['DSC09551.jpg', 2, 'Don Norman signing'], ['DSC09732.jpg', 2, 'Happy hour by Marvin & Dscout']];
+  let x = M, y = y0, used = 0;
+  tiles.forEach(([f, span, cap]) => {
+    if (used + span > 6) { used = 0; x = M; y += rh + g; }
+    const w = cu * span + g * (span - 1);
+    photo(s, f, x, y, w, rh);
+    s.addShape(pres.shapes.RECTANGLE, { x, y: y + rh - px(60), w, h: px(60), fill: { color: '000000', transparency: 45 }, line: { color: '000000', width: 0 } });
+    s.addText(cap, { x: x + px(18), y: y + rh - px(56), w: w - px(36), h: px(50), fontFace: SANS, fontSize: 8.5, color: WHITE, margin: 0, isTextBox: true, valign: 'middle' });
+    x += w + g; used += span;
+  });
+}
+
+
+/* ---------- 4 theme index ---------- */
 const THEMES = [
   ['Good is free now. ', 'Great is the job.', 'Taste, judgment and a durable point of view are what AI cannot generate.'],
   ['Research stops being a project ', 'and becomes a pulse.', 'When teams ship weekly, episodic studies arrive after the decision.'],
@@ -95,7 +113,7 @@ const THEMES = [
   ['Context is the asset. ', 'The experience is the business.', 'Tools change weekly; structured knowledge compounds.'],
 ];
 {
-  const s = base(3);
+  const s = base(4);
   eyebrow(s, TOP, 'What the room agreed on');
   h1(s, 'The floor rose.\nThe ceiling didn’t move.', TOP + px(40));
   const y0 = TOP + px(290), cw = (W - 2 * M) / 5, ch = px(560);
@@ -109,7 +127,7 @@ const THEMES = [
   vline(s, W - M, y0, ch);
 }
 
-/* ---------- 4–8 theme slides ---------- */
+/* ---------- 5–9 theme slides ---------- */
 const THEME_SLIDES = [
   { sub: 'Craft in an AI-native world', p: 'Richard Ward called the “death of design” narrative backwards: when everyone can clear the bar for good, the differentiator is knowing what great looks like. Kevin Wong went further: AI has not changed design, it has exposed how little depth most organisations were designing with. At the tables, Jaleesa Chagan framed the edge as a shift “from capability to conviction”.',
     who: [['richard-ward.png', 'Richard Ward, Otter.ai'], ['kevin-wong.png', 'Kevin Wong, Webflow'], ['jaleesa-chagan.png', 'Jaleesa Chagan, GAIN']], photo: 'DSC09616.jpg',
@@ -128,7 +146,7 @@ const THEME_SLIDES = [
     ev: [['2026 evidence', '20 → 77%', 'AI agents’ success rate on real-world tasks, up from 20% in 2025.', 'Stanford HAI, 2026 AI Index, April 2026'], ['The experience gap', '43%', 'of customers are willing to interact with a brand’s AI agent; 78% of organisations expect agents to handle half of support within 18 months.', 'Adobe, 2026 Digital Trends, February 2026']] },
 ];
 THEME_SLIDES.forEach((t, i) => {
-  const s = base(4 + i);
+  const s = base(5 + i);
   eyebrow(s, TOP, 'Theme', t.sub);
   const [a, b] = THEMES[i];
   const lw = px(800), y0 = TOP + px(60);
@@ -153,9 +171,9 @@ THEME_SLIDES.forEach((t, i) => {
   evidence(s, rx + ew + px(40), ey, ew, ...t.ev[1]);
 });
 
-/* ---------- 9 big quote ---------- */
+/* ---------- 10 big quote ---------- */
 {
-  const s = base(9);
+  const s = base(10);
   eyebrow(s, TOP, 'In their words');
   s.addText('“The next era of innovation will not belong to the companies that automate the fastest, but to those that intentionally design systems in which humans and intelligent technology can learn, adapt, and make better decisions together.”', { x: M, y: px(300), w: px(1100), h: px(520), fontFace: SERIF, italic: true, fontSize: 27, color: WHITE, margin: 0, isTextBox: true, valign: 'middle', lineSpacingMultiple: 1.2 });
   circle(s, 'twisha-shah-brandenburg.png', M + px(1280), px(360), px(260));
@@ -163,7 +181,7 @@ THEME_SLIDES.forEach((t, i) => {
   s.addText('Principal, Target\nWorkshop “From Optimizing Interfaces to Designing Organizations”', { x: M + px(1280), y: px(695), w: px(420), h: px(90), fontFace: SANS, fontSize: 10, color: DIM, margin: 0, isTextBox: true, valign: 'top', lineSpacingMultiple: 1.2 });
 }
 
-/* ---------- 10–12 quote grids ---------- */
+/* ---------- 11–13 quote grids ---------- */
 const QUOTES = [
   [['richard-ward.png', 'Richard Ward', 'Chief Design Officer, Otter.ai', "Democratized tools didn't lower the bar for great design. They raised it, because now everyone can clear the bar for good."],
    ['stephanie-mencarelli.png', 'Stephanie Mencarelli', 'Vice President of Design, Adobe', 'As AI becomes more capable and generates more machine output, human originality becomes a scarce resource. We need to protect and foster the conditions where humans can continue to create original ideas.'],
@@ -179,7 +197,7 @@ const QUOTES = [
    ['lauren-hughes.jpg', 'Lauren Hughes', 'Lead Product Designer, Dscout', 'Good design has always been about staying close to real people. The future of innovation is about embracing speed without losing that.']],
 ];
 QUOTES.forEach((qs, i) => {
-  const s = base(10 + i);
+  const s = base(11 + i);
   eyebrow(s, TOP, 'In their words', 'Speakers on the future of innovation');
   const y0 = TOP + px(70), cw = (W - 2 * M - px(34)) / 2, ch = px(360);
   qs.forEach(([f, name, role, q], k) => {
@@ -192,9 +210,9 @@ QUOTES.forEach((qs, i) => {
   });
 });
 
-/* ---------- 13 programme ---------- */
+/* ---------- 14 programme ---------- */
 {
-  const s = base(13);
+  const s = base(14);
   eyebrow(s, TOP, 'The day', 'Thursday 17 September 2026');
   const cols = [
     ['Guggenheim Theatre', [['10:00', 'Welcome', 'Tad Parzen (BCCA), Sebastian Gier, Scott Robinson'], ['10:15', 'The State of Humanity-Centric Innovation', 'Don Norman · fireside chat & Q&A'], ['10:45', 'Industry insights from the global DDX series', 'Sebastian Gier'], ['11:30', 'F*** Productivity: Make Space for Creative Joy', 'Stephanie Mencarelli, Adobe'], ['12:15', 'Drive, Play, Eat: designers shaping our culture', 'Panel · Scott Robinson, Elizabeth Yeongmin, Diana Tobey, Kara Fitzpatrick'], ['14:00', 'Design Isn’t Dead, It’s Just Getting Harder to Be Great', 'Richard Ward, Otter.ai'], ['14:30', 'Design Didn’t Change – AI Just Exposed What Was Missing', 'Kevin Wong, Webflow'], ['15:30', 'Closing the Design-to-Dev Gap', 'Scott Robinson, Alexander Danilowicz'], ['16:00', 'The Rise of the Experience Economy', 'Panel · Ann Kostopanagiotou, Twisha Shah-Brandenburg, Diana Wolosin, Dave Rowley'], ['17:00', 'Expectations and realities of being an enterprise design leader today', 'Panel · Lauren Hughes, Stephanie Mencarelli, Kevin Wong']]],
@@ -219,23 +237,6 @@ QUOTES.forEach((qs, i) => {
       s.addShape(pres.shapes.LINE, { x, y: y - px(4), w: cw, h: 0, line: { color: LINE_SOFT, width: 0.5 } });
     });
     x += cw + gap;
-  });
-}
-
-/* ---------- 14 photos ---------- */
-{
-  const s = base(14);
-  eyebrow(s, TOP, 'The room', 'Photos by Desmond Chua and Nicole Gosé');
-  const y0 = TOP + px(70), gw = W - 2 * M, g = px(12), rh = px(384), cu = (gw - 5 * g) / 6;
-  const tiles = [['DSC09601.jpg', 3, 'Drive, Play, Eat panel'], ['DSC09472.jpg', 2, 'Park & Market atrium'], ['DSC09562.jpg', 1, 'Stephanie Mencarelli'], ['DSC09649.jpg', 2, 'Table talks in the breaks'], ['DSC09551.jpg', 2, 'Don Norman signing'], ['DSC09732.jpg', 2, 'Happy hour by Marvin & Dscout']];
-  let x = M, y = y0, used = 0;
-  tiles.forEach(([f, span, cap]) => {
-    if (used + span > 6) { used = 0; x = M; y += rh + g; }
-    const w = cu * span + g * (span - 1);
-    photo(s, f, x, y, w, rh);
-    s.addShape(pres.shapes.RECTANGLE, { x, y: y + rh - px(60), w, h: px(60), fill: { color: '000000', transparency: 45 }, line: { color: '000000', width: 0 } });
-    s.addText(cap, { x: x + px(18), y: y + rh - px(56), w: w - px(36), h: px(50), fontFace: SANS, fontSize: 8.5, color: WHITE, margin: 0, isTextBox: true, valign: 'middle' });
-    x += w + g; used += span;
   });
 }
 
