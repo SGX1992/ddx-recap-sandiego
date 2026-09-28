@@ -28,7 +28,7 @@ And to our partners for making it possible: FreshForm, BCCA, Don Norman Design A
 
 The full recap with the 2026 research behind each takeaway is in the carousel below.
 
-Next stop: Miami, 25 September. San Diego '27 early-bird tickets are live at ddxconference.com.
+Next stops: Dubai, 27–28 January, and Tokyo, 12 February. San Diego '27 early-bird tickets are live at ddxconference.com.
 
 #DDX #DDXSanDiego #DesignLeadership #ProductDesign #UXResearch #AI #DigitalInnovation
 
@@ -42,6 +42,6 @@ That's a wrap on DDX'26 San Diego.
 
 What stayed with me: research has to become always-on, design has to move from screens to decisions, and the human stays irrational, and irreplaceable. AI can read the deck. It can't read the room.
 
-Thank you to every speaker, host and partner, and to San Diego. Full recap in the carousel. Next: Miami, 25 September.
+Thank you to every speaker, host and partner, and to San Diego. Full recap in the carousel. Next: Dubai, 27–28 January, and Tokyo, 12 February.
 
 #DDX #DesignLeadership #AI

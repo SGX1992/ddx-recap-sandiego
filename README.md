@@ -10,7 +10,7 @@ Built 2026-09-20 from four sources:
 
 Open `index.html` directly; no build step. Deploy the folder as-is (GitHub Pages: add `.nojekyll`).
 
-**To confirm before sending out:** the "300+ leaders registered" tile (Luma showed 319 approved on 14 Sep; replace with the final checked-in count), and the London/Dubai dates, which are still "late 2026 / early 2027" on the public site.
+**To confirm before sending out:** the "300+ leaders registered" tile (Luma showed 319 approved on 14 Sep; replace with the final checked-in count). Next-city list (2026-09-28): Dubai 27–28 Jan 2027, Tokyo 12 Feb 2027; Miami and London removed.
 
 ## Recap deck (PDF)
 

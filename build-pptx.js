@@ -252,8 +252,8 @@ QUOTES.forEach((qs, i) => {
   chips.forEach((c) => { const w = px(c.length * 11.5 + 44); if (x + w > W - M) { x = M; cy2 += px(62); } s.addShape(pres.shapes.RECTANGLE, { x, y: cy2, w, h: px(50), fill: { color: BG }, line: { color: LINE, width: 0.75 } }); s.addText(c, { x, y: cy2, w, h: px(50), align: 'center', fontFace: SANS, fontSize: 10, color: 'D9D9D9', margin: 0, isTextBox: true, valign: 'middle' }); x += w + px(12); });
   eyebrow(s, TOP + px(330), 'The series continues');
   h1(s, 'Same exchange, next city', TOP + px(370), 92);
-  const cities = [['Miami', '25 September 2026'], ['London', 'Late 2026'], ['Tokyo', '12 February 2027'], ['Dubai', 'Early 2027'], ['San Diego ’27', 'Early-bird tickets: luma.com/ddx-sd27', true]];
-  const cw = (W - 2 * M) / 5, cyy = px(760), ch = px(210);
+  const cities = [['Dubai', '27–28 January 2027'], ['Tokyo', '12 February 2027'], ['San Diego ’27', 'Early-bird tickets: luma.com/ddx-sd27', true]];
+  const cw = (W - 2 * M) / cities.length, cyy = px(760), ch = px(210);
   cities.forEach(([n, d, cta], i) => {
     const cx = M + i * cw;
     s.addShape(pres.shapes.RECTANGLE, { x: cx, y: cyy, w: cw, h: ch, fill: { color: cta ? Y : BG }, line: { color: cta ? Y : LINE, width: 0.75 } });

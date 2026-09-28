@@ -18,7 +18,7 @@ Each one is backed by a 2026 figure in the slides, from Figma, Maze, Gartner, St
 
 Thank you to every speaker, to Don Norman for opening the day, to our partners FreshForm, BCCA, Don Norman Design Award, Marvin, dscout, GAIN Conversion, Askable, Mondo Robot, J.S. Held, Edenspiekermann, Appsfactory, San Diego Design Week, Friends of Figma San Diego and SDXD, and to Desmond Chua and Nicole Gosé for the photos.
 
-Next stop: Miami, 25 September. San Diego '27 early-bird tickets are already live at ddxconference.com.
+Next stops: Dubai, 27–28 January, and Tokyo, 12 February. San Diego '27 early-bird tickets are already live at ddxconference.com.
 
 #DDX #DesignLeadership #ProductDesign #UXResearch #AI #SanDiego #DigitalInnovation
 
@@ -30,7 +30,7 @@ DDX'26 San Diego, in ten slides. ⚡
 
 Swipe for the five takeaways, one quote we keep coming back to, and the room that made it.
 
-Thank you San Diego. Next: Miami, 25 Sep. San Diego '27 early-bird tickets: link in bio.
+Thank you San Diego. Next: Dubai 27–28 Jan, Tokyo 12 Feb. San Diego '27 early-bird tickets: link in bio.
 
 📸 Desmond Chua & Nicole Gosé
 

@@ -29,7 +29,7 @@ p.body{margin-top:34px;font-size:30px;line-height:1.42;color:rgba(255,255,255,.8
 .cover::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(5,5,5,.3),rgba(5,5,5,.05) 35%,rgba(5,5,5,.85) 72%,#050505)}
 .cover .in{position:relative;padding:0 72px 96px}
 .cover .mark{position:absolute;top:72px;left:72px;width:150px}
-.cover h1{font-size:176px;line-height:.84}
+.cover h1{font-size:160px;line-height:.84}
 .cover .meta{margin-top:30px;font-size:26px;line-height:1.4;color:rgba(255,255,255,.85)}
 .cover .meta b{color:#fff}
 /* numbers */
@@ -45,6 +45,12 @@ p.body{margin-top:34px;font-size:30px;line-height:1.42;color:rgba(255,255,255,.8
 .theme .stat .n small{font-size:.5em;color:var(--dim)}
 .theme .stat .t{margin-top:16px;font-size:26px;line-height:1.4;color:rgba(255,255,255,.82);max-width:34ch}
 .theme .stat .src{margin-top:10px;font-size:18px;color:var(--faint)}
+.theme .lower{flex:1;min-height:0;margin-top:44px;margin-right:-72px;display:grid;grid-template-columns:minmax(0,1fr) 440px;gap:40px}
+.theme .lower .stat{margin-top:0;align-self:end}
+.theme .lower .stat .n{font-size:118px}
+.theme .shot{position:relative;margin:0;overflow:hidden;background:#000}
+.theme .shot img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.theme .shot figcaption{position:absolute;left:0;right:0;bottom:0;padding:48px 26px 20px;font-size:17px;line-height:1.35;color:rgba(255,255,255,.92);background:linear-gradient(0deg,rgba(0,0,0,.8),transparent)}
 .who{margin-top:36px;display:flex;gap:-10px}
 .who img{width:104px;height:104px;border-radius:50%;object-fit:cover;background:#000;border:4px solid var(--bg);margin-right:-18px}
 .who .names{align-self:center;margin-left:34px;font-size:22px;line-height:1.35;color:var(--dim)}
@@ -105,7 +111,7 @@ p.body{margin-top:34px;font-size:30px;line-height:1.42;color:rgba(255,255,255,.8
   <div class="eyebrow"><i></i><span>The room</span></div>
   <h2>Thank you, <span>San Diego.</span></h2>
   <div class="grid">
-    <figure class="w2"><img src="assets/img/photos/DSC09601.jpg" alt=""></figure>
+    <figure class="w2"><img src="assets/img/photos/DSC09693.jpg" alt=""></figure>
     <figure><img src="assets/img/photos/DSC09649.jpg" alt=""></figure>
     <figure><img src="assets/img/photos/DSC09551.jpg" alt=""></figure>
     <figure class="w2"><img src="assets/img/photos/DSC09472.jpg" alt=""></figure>
@@ -119,7 +125,10 @@ p.body{margin-top:34px;font-size:30px;line-height:1.42;color:rgba(255,255,255,.8
   <h2>Good is free now. <span>Great is the job.</span></h2>
   <p class="body">When everyone can clear the bar for good, taste, judgment and a durable point of view are what separate teams. AI didn’t change design; it exposed how shallow most of it was.</p>
   <div class="who"><img src="assets/img/speakers/richard-ward.webp" alt=""><img src="assets/img/speakers/kevin-wong.webp" alt=""><img src="assets/img/speakers/jaleesa-chagan.webp" alt=""><div class="names">Richard Ward, Otter.ai · Kevin Wong, Webflow · Jaleesa Chagan, GAIN</div></div>
-  <div class="stat"><div class="k">2026 evidence</div><div class="n">91<small>%</small></div><div class="t">of designers now use AI for design tasks every week, up from 54% a year ago.</div><div class="src">Designer Fund, AI in Design 2026</div></div>
+  <div class="lower">
+    <div class="stat"><div class="k">2026 evidence</div><div class="n">91<small>%</small></div><div class="t">of designers now use AI for design tasks every week, up from 54% a year ago.</div><div class="src">Designer Fund, AI in Design 2026</div></div>
+    <figure class="shot"><img src="assets/img/photos/DSC09616.jpg" alt="" style="object-position:80% 50%"><figcaption>Richard Ward, Otter.ai, on the main stage</figcaption></figure>
+  </div>
   <div class="foot"><img src="assets/img/ddx-wordmark.png" alt=""><span>DDX’26 San Diego</span><span class="swipe">Swipe →</span></div>
 </section>
 
@@ -129,7 +138,10 @@ p.body{margin-top:34px;font-size:30px;line-height:1.42;color:rgba(255,255,255,.8
   <h2>Research stops being a project <span>and becomes a pulse.</span></h2>
   <p class="body">When teams ship weekly, episodic studies arrive after the decision. TaylorMade’s AI caddie showed the alternative: research before, A/B tests during, evaluation after, always on.</p>
   <div class="who"><img src="assets/img/speakers/prayag-narula.webp" alt=""><img src="assets/img/speakers/harriet-swan.png" alt=""><img src="assets/img/speakers/katie-niles.jpg" alt=""><div class="names">Prayag Narula, Marvin · Harriet Swan, GAIN · Katie Niles, TaylorMade</div></div>
-  <div class="stat"><div class="k">2026 evidence</div><div class="n">8 → 22<small>%</small></div><div class="t">of organisations now call research essential to all levels of business strategy, nearly tripling in a year.</div><div class="src">Maze, Future of User Research 2026</div></div>
+  <div class="lower">
+    <div class="stat"><div class="k">2026 evidence</div><div class="n">8 → 22<small>%</small></div><div class="t">of organisations now call research essential to all levels of business strategy, nearly tripling in a year.</div><div class="src">Maze, Future of User Research 2026</div></div>
+    <figure class="shot"><img src="assets/img/photos/DSC09633.jpg" alt="" style="object-position:90% 50%"><figcaption>Katie Niles, TaylorMade, and Harriet Swan, GAIN, on shipping the AI caddie</figcaption></figure>
+  </div>
   <div class="foot"><img src="assets/img/ddx-wordmark.png" alt=""><span>DDX’26 San Diego</span><span class="swipe">Swipe →</span></div>
 </section>
 
@@ -139,7 +151,10 @@ p.body{margin-top:34px;font-size:30px;line-height:1.42;color:rgba(255,255,255,.8
   <h2>Stop designing screens. <span>Start designing decisions.</span></h2>
   <p class="body">Design’s value is measured by its influence on what gets built, not by deliverables. The next brief is the organisation itself: its systems, ownership and invisible labour.</p>
   <div class="who"><img src="assets/img/speakers/chris-gielow.webp" alt=""><img src="assets/img/speakers/twisha-shah-brandenburg.webp" alt=""><img src="assets/img/speakers/diana-tobey.webp" alt=""><div class="names">Chris Gielow, UX Speakeasy · Twisha Shah-Brandenburg, Target · Diana Tobey, IDEO</div></div>
-  <div class="stat"><div class="k">2026 evidence</div><div class="n">21 → 41<small>%</small></div><div class="t">of designers now do development work, doubling in a year. The roles converge on the decision.</div><div class="src">Figma, 2026 AI Report</div></div>
+  <div class="lower">
+    <div class="stat"><div class="k">2026 evidence</div><div class="n">21 → 41<small>%</small></div><div class="t">of designers now do development work, doubling in a year. The roles converge on the decision.</div><div class="src">Figma, 2026 AI Report</div></div>
+    <figure class="shot"><img src="assets/img/photos/DSC09601.jpg" alt="" style="object-position:84% 50%"><figcaption>Diana Tobey, IDEO, on the Drive, Play, Eat panel</figcaption></figure>
+  </div>
   <div class="foot"><img src="assets/img/ddx-wordmark.png" alt=""><span>DDX’26 San Diego</span><span class="swipe">Swipe →</span></div>
 </section>
 
@@ -149,7 +164,10 @@ p.body{margin-top:34px;font-size:30px;line-height:1.42;color:rgba(255,255,255,.8
   <h2>The human stays irrational, <span>and irreplaceable.</span></h2>
   <p class="body">The rational user most products are designed for doesn’t exist. AI can read the deck; it can’t read the room. As machines generate more, human originality becomes the scarce resource.</p>
   <div class="who"><img src="assets/img/speakers/don-norman.webp" alt=""><img src="assets/img/speakers/rowan-salama.webp" alt=""><img src="assets/img/speakers/stephanie-mencarelli.webp" alt=""><img src="assets/img/speakers/kara-fitzpatrick.jpg" alt=""><div class="names">Don Norman · Rowan Salama, Careem · Stephanie Mencarelli, Adobe · Kara Fitzpatrick</div></div>
-  <div class="stat"><div class="k">2026 evidence</div><div class="n">50<small>%</small></div><div class="t">of US consumers prefer brands that don’t use generative AI in customer-facing content.</div><div class="src">Gartner, March 2026</div></div>
+  <div class="lower">
+    <div class="stat"><div class="k">2026 evidence</div><div class="n">50<small>%</small></div><div class="t">of US consumers prefer brands that don’t use generative AI in customer-facing content.</div><div class="src">Gartner, March 2026</div></div>
+    <figure class="shot"><img src="assets/img/photos/DSC09522.jpg" alt="" style="object-position:40% 50%"><figcaption>Don Norman opening the day with Sebastian Gier</figcaption></figure>
+  </div>
   <div class="foot"><img src="assets/img/ddx-wordmark.png" alt=""><span>DDX’26 San Diego</span><span class="swipe">Swipe →</span></div>
 </section>
 
@@ -159,7 +177,10 @@ p.body{margin-top:34px;font-size:30px;line-height:1.42;color:rgba(255,255,255,.8
   <h2>Context is the asset. <span>The experience is the business.</span></h2>
   <p class="body">Models change weekly; structured knowledge compounds. And when an agent is the one browsing and buying, the digital experience is no longer a layer on the business. It is the business.</p>
   <div class="who"><img src="assets/img/speakers/diana-wolosin.webp" alt=""><img src="assets/img/speakers/aj-azzi.webp" alt=""><img src="assets/img/speakers/scott-robinson.webp" alt=""><img src="assets/img/speakers/ann-kostopanagiotou.jpg" alt=""><div class="names">Diana Wolosin, Netflix · AJ Azzi, Askable · Scott Robinson, FreshForm · Ann Kostopanagiotou, Mondo Robot</div></div>
-  <div class="stat"><div class="k">2026 evidence</div><div class="n">20 → 77<small>%</small></div><div class="t">AI agents’ success rate on real-world tasks, in one year.</div><div class="src">Stanford HAI, 2026 AI Index</div></div>
+  <div class="lower">
+    <div class="stat"><div class="k">2026 evidence</div><div class="n">20 → 77<small>%</small></div><div class="t">AI agents’ success rate on real-world tasks, in one year.</div><div class="src">Stanford HAI, 2026 AI Index</div></div>
+    <figure class="shot"><img src="assets/img/photos/DSC09661.jpg" alt="" style="object-position:20% 50%"><figcaption>Scott Robinson, FreshForm, on closing the design-to-dev gap</figcaption></figure>
+  </div>
   <div class="foot"><img src="assets/img/ddx-wordmark.png" alt=""><span>DDX’26 San Diego</span><span class="swipe">Swipe →</span></div>
 </section>
 
@@ -179,7 +200,7 @@ p.body{margin-top:34px;font-size:30px;line-height:1.42;color:rgba(255,255,255,.8
   </div>
   <h2 style="margin-top:80px">Same exchange, <span>next city.</span></h2>
   <div class="next">
-    <div><b>Miami</b><span>25 Sep 2026</span></div>
+    <div><b>Dubai</b><span>27–28 Jan 2027</span></div>
     <div><b>Tokyo</b><span>12 Feb 2027</span></div>
     <div class="cta"><b>San Diego ’27</b><span>Early-bird tickets live · ddxconference.com</span></div>
   </div>
